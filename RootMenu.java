@@ -6,7 +6,20 @@
         -- Frank
  */
 
+/*
+    This works but it's very sloppy. My main focus here is showReportMenu().
+    Some query ideas:
 
+        For example, take the first victim, Course listing.
+
+            SELECT CourseNumber, DaysOfTheWeek, Time, FacultyTeaching
+            FROM Section
+            WHERE StudentsEnrolled = "someStudent";
+
+    (I also might need to know how students are related to their courses.
+    Is StudentsEnrolled a column that keeps student names, and we can just
+    COUNT() them to get the section occupancy? Something to think about)
+ */
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -19,13 +32,13 @@ public class RootMenu {
         while (true) {
 
             System.out.println("   LOST IN ERWIN ");
-            System.out.println("-----------------------");
+            System.out.println("________________________");
             System.out.println("1) Student Menu\n" +
                                "2) Faculty Menu\n" +
                                "3) Reporting Menu\n" +
                                "4) Administrative Menu\n" +
                                "------------------------\n" +
-                    "5) EXIT\n");
+                               "5) EXIT\n");
 
             Scanner option = new Scanner(System.in);
             try {
@@ -41,7 +54,8 @@ public class RootMenu {
                     case 2:  //showFacultyMenu();
                         break;
 
-                    case 3:  //showReportMenu();
+                    case 3:
+                        showReportMenu();
                         break;
 
                     case 4:  //showAdminMenu();
@@ -54,7 +68,7 @@ public class RootMenu {
 
                     default:
                         System.out.println("error: a menu selection specified is" +
-                                " out of bounds. Select 1-5.\n\n");
+                                " out of bounds. Select 1-5.\n");
 
                 }
 
@@ -83,7 +97,7 @@ public class RootMenu {
           while (true) {
 
             System.out.println("\t     Student Menu");
-            System.out.println("\t-----------------------");
+            System.out.println("\t======================");
             System.out.println("\t1)New Student\n" +
                                "\t2)Courses Needed\n" +
                                "\t3)Preferred Schedule\n" +
@@ -125,7 +139,7 @@ public class RootMenu {
 
                       default:
                           System.out.println("error: a menu selection specified is" +
-                                  " out of bounds. Select 1-6.\n\n");
+                                  " out of bounds. Select 1-6.\n");
                   } // end switch
               } catch (InputMismatchException ex) {
                   // clear for the next input attempt.
@@ -138,6 +152,69 @@ public class RootMenu {
 
 
         }
+/*  showReportMenu() calls and displays all of the RowSets from the queries
+    to the Oracle DB.
+ */
+    private void showReportMenu() {
+
+        while (true) {
+            System.out.println("--------------------\n" +
+                            "   REPORTING MENU\n" +
+                            "====================\n" +
+                            "\n" +
+                            "1) Course listing\n" +
+                            "2) Day listing\n" +
+                            "3) Time listing\n" +
+                            "4) Student listing\n" +
+                            "5) Faculty listing\n" +
+                            "---------------------\n" +
+                            "6) Back to main menu"
+            );
+
+            Scanner option = new Scanner(System.in);
+            try {
+                byte byopt = option.nextByte();
+
+                switch (byopt) {
+
+                    case 1:
+                        System.out.println("Getting course listing...\n");
+                        break;
+
+                    case 2:
+                        System.out.println("Getting current day information...\n");
+                        break;
+
+                    case 3:
+                        System.out.println("Getting current time related information" +
+                                "for student...\n");
+                        break;
+
+                    case 4:
+                        System.out.println("Getting the student's course information...\n");
+                        break;
+
+                    case 5:
+                        System.out.println("Getting the faculty list for student...\n");
+                        break;
+
+                    case 6:
+                        System.out.println("Going up to main menu.\n");
+                        return;
+
+
+                    default:
+                        System.out.println("error: a menu selection specified is" +
+                                " out of bounds. Select 1-6.\n");
+                } // end switch
+            } catch (InputMismatchException ex) {
+                // clear for the next input attempt.
+                option.nextLine();
+                System.out.println("You did not choose a proper number between 1 and 6. Please" +
+                        " try again.");
+            }
+        } // end while(true)
+    }
 
     }
 
