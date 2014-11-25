@@ -10,20 +10,21 @@
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class SchoolMenuGen implements Menu {
+public class RootMenu {
 
     public void showMainMenu() {
 
         // main menu
 
         while (true) {
-            System.out.println();
-            System.out.println("LOST IN ERWIN");
-            System.out.println("--------------");
+
+            System.out.println("   LOST IN ERWIN ");
+            System.out.println("-----------------------");
             System.out.println("1) Student Menu\n" +
-                    "2) Faculty Menu\n" +
-                    "3) Reporting Menu\n" +
-                    "4) Administrative Menu\n" +
+                               "2) Faculty Menu\n" +
+                               "3) Reporting Menu\n" +
+                               "4) Administrative Menu\n" +
+                               "------------------------\n" +
                     "5) EXIT\n");
 
             Scanner option = new Scanner(System.in);
@@ -47,6 +48,7 @@ public class SchoolMenuGen implements Menu {
                         break;
 
                     case 5:
+                        System.out.println("Bye!");
                         System.exit(0);
                         break;
 
@@ -80,14 +82,15 @@ public class SchoolMenuGen implements Menu {
 
           while (true) {
 
-            System.out.println("Student Menu");
-            System.out.println("\t------------");
+            System.out.println("\t     Student Menu");
+            System.out.println("\t-----------------------");
             System.out.println("\t1)New Student\n" +
-                    "\t2)Courses Needed\n" +
-                    "\t3)Preferred Schedule\n" +
-                    "\t4)Term Schedule\n" +
-                    "\t5)Statistics\n" +
-                    "\t6)RETURN to Main Menu");
+                               "\t2)Courses Needed\n" +
+                               "\t3)Preferred Schedule\n" +
+                               "\t4)Term Schedule\n" +
+                               "\t5)Statistics\n" +
+                               "\t-----------------------\n" +
+                               "\t6)RETURN to Main Menu");
 
             Scanner option = new Scanner(System.in);
               try {

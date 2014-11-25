@@ -9,7 +9,7 @@ public class Driver {
 
     public static void main (String[] args) {
 
-        SchoolMenuGen menu = new SchoolMenuGen();
+        RootMenu menu = new RootMenu();
         menu.showMainMenu();
     }
 }
