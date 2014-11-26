@@ -108,9 +108,9 @@ public class RootMenu {
 
             Scanner option = new Scanner(System.in);
               try {
-                  byte byopt = option.nextByte();
+                  byte opt = option.nextByte();
 
-                  switch (byopt) {
+                  switch (opt) {
 
                       case 1:
                           System.out.println("Creating new student...\n");
@@ -171,38 +171,49 @@ public class RootMenu {
                             "6) Back to main menu"
             );
 
+            // instantiate the ReportGen class and prepare its methods for
+            // usage.
+
+            ReportGen reportGen = new ReportGen();
+
+
+
+
             Scanner option = new Scanner(System.in);
             try {
-                byte byopt = option.nextByte();
+                byte opt = option.nextByte();
 
-                switch (byopt) {
+                switch (opt) {
 
                     case 1:
                         System.out.println("Getting course listing...\n");
+                        System.out.println(reportGen.getReport(opt, 's'));
                         break;
 
                     case 2:
                         System.out.println("Getting current day information...\n");
+                        System.out.println(reportGen.getReport(opt, 's'));
                         break;
 
                     case 3:
                         System.out.println("Getting current time related information" +
                                 "for student...\n");
+                        System.out.println(reportGen.getReport(opt, 's'));
                         break;
 
                     case 4:
                         System.out.println("Getting the student's course information...\n");
+                        System.out.println(reportGen.getReport(opt, 's'));
                         break;
 
                     case 5:
                         System.out.println("Getting the faculty list for student...\n");
+                        System.out.println(reportGen.getReport(opt, 's'));
                         break;
 
                     case 6:
                         System.out.println("Going up to main menu.\n");
                         return;
-
-
                     default:
                         System.out.println("error: a menu selection specified is" +
                                 " out of bounds. Select 1-6.\n");
