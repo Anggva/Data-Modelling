@@ -1,0 +1,1 @@
+INSERT INTO Section VALUES (courseregistrationnumber, ‘daysoftheweek, ‘studentsenrolled’, ‘facultyteaching’);
