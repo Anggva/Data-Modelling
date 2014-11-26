@@ -86,7 +86,7 @@ public class ReportGen {
     private String getFacultyListing(char usertype) {
 
         // are only faculty members or administrators allowed to retrieve certain information?
-        if (usertype != 'f' && usertype != 'a') {
+        if (usertype != 'F' && usertype != 'A') {
             return "You do not have sufficient credentials to retrieve this information.";
         }
         // send back the results of a query in a stylized fashion.
