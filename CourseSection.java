@@ -72,6 +72,9 @@ public class CourseSection extends Relationship {
 
     }
 
+    public CourseSection() {
+
+    }
 
     public CourseSection(int courseNumber, String days, String time, String students, String instructor) {
         setCourseNumber(courseNumber);
@@ -81,7 +84,14 @@ public class CourseSection extends Relationship {
         setInstructor(instructor);
     }
 
+    public String getFormData() {
 
+        return "Course Listing\n" +
+               "===================================================================\n" +
+               "Course Number\t" + "Days\t" + "Time\t" + "Student\t" + "Instructor\n" +
+        getCourseNumber() + "\t" + getDays() + "\t" + getTime() + "\t" + getStudents() + "\t" + getInstructor();
+
+    }
 
 
     public void getDBData() {
