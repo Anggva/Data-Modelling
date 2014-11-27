@@ -37,8 +37,7 @@ and you're ready to start using ReportGen's methods.
 
 ReportGen's methods require at least two pieces of information, the submenu
 option provided by the user and the user's type (S=student, F=faculty, A=admin).
-Passing the user type to ReportGen itself is planned, but as of now each method
-receives the type.
+The user type is passed to ReportGen itself.
 
 <h4> DB connectivity notes </h4>
 If at any time anyone wishes to make a database connection, you need only make an
