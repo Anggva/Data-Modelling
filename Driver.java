@@ -7,9 +7,13 @@
  */
 public class Driver {
 
+
+
     public static void main (String[] args) {
 
-        RootMenu menu = new RootMenu();
+        char usertype = 'S';
+
+        RootMenu menu = new RootMenu(usertype);
         menu.showMainMenu();
     }
 }
