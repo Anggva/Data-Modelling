@@ -5,12 +5,18 @@
 public class ReportGen {
 
 
+    private char usertype;
+
+    public ReportGen(char usertype) {
+        this.usertype = usertype;
+    }
+
 
     /*  publicly accessible method for gathering the desired
         information based on user types, student, faculty, or
         administrator
      */
-    public String getReport(byte choice, char usertype) {
+    public String getReport(byte choice) {
 
 
             switch (choice) {
@@ -38,7 +44,7 @@ public class ReportGen {
         CourseSection courseListing = new CourseSection();
         courseListing.getDBData();
 
-        
+
         // pass the report form data to the screen (out).
         return courseListing.getFormData();
     }

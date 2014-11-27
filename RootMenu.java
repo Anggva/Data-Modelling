@@ -25,6 +25,12 @@ import java.util.Scanner;
 
 public class RootMenu {
 
+    private char usertype;
+
+    public RootMenu(char usertype) {
+        this.usertype = usertype;
+    }
+
     public void showMainMenu() {
 
         // main menu
@@ -174,7 +180,7 @@ public class RootMenu {
             // instantiate the ReportGen class and prepare its methods for
             // usage.
 
-            ReportGen reportGen = new ReportGen();
+            ReportGen reportGen = new ReportGen(usertype);
 
 
 
@@ -187,28 +193,28 @@ public class RootMenu {
 
                     case 1:
                         System.out.println("Getting course listing...\n");
-                        System.out.println(reportGen.getReport(opt, 's'));
+                        System.out.println(reportGen.getReport(opt));
                         break;
 
                     case 2:
                         System.out.println("Getting current day information...\n");
-                        System.out.println(reportGen.getReport(opt, 's'));
+                        System.out.println(reportGen.getReport(opt));
                         break;
 
                     case 3:
                         System.out.println("Getting current time related information" +
                                 "for student...\n");
-                        System.out.println(reportGen.getReport(opt, 's'));
+                        System.out.println(reportGen.getReport(opt));
                         break;
 
                     case 4:
                         System.out.println("Getting the student's course information...\n");
-                        System.out.println(reportGen.getReport(opt, 's'));
+                        System.out.println(reportGen.getReport(opt));
                         break;
 
                     case 5:
                         System.out.println("Getting the faculty list for student...\n");
-                        System.out.println(reportGen.getReport(opt, 's'));
+                        System.out.println(reportGen.getReport(opt));
                         break;
 
                     case 6:
