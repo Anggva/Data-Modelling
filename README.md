@@ -53,6 +53,15 @@ Connection connection = DBConnection.connect();
 
 does the job for you if the class, DBConnection, is found in the working folder.
 
+For the database connection to work at all, the proper JDBC driver needs to be
+installed.
+
+<h4> GUI considerations </h4>
+
+ReportGen can be replaced with a GUI front-end which uses Relationship and its
+concrete child classes. Access to the row data for the Section table, for instance,
+can be had with CourseSection's getter method, _getFormData()_.
+
 
 
 
