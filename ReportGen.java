@@ -14,18 +14,17 @@ public class ReportGen {
 
 
             switch (choice) {
-                case 1: return getCourseListing(usertype);
-
-                case 2: return getDayListing(usertype);
-                case 3: return getTimeListing(usertype);
-                case 4: return getStudentListing();
-                case 5: return getFacultyListing(usertype);
-                default: System.out.println("getReport() provided with" +
-                        " an invalid or out-of-bounds menu option.");
-                        break;
+                    case 1: System.out.println(getCourseListing(usertype));
+                    case 2: System.out.println(getDayListing(usertype));
+                    case 3: System.out.println(getTimeListing(usertype));
+                    case 4: System.out.println(getStudentListing());
+                    case 5: System.out.println(getFacultyListing(usertype));
+                    default: System.out.println("getReport() provided with" +
+                            " an invalid or out-of-bounds menu option.");
+                            return "";
 
             }
-          return "";
+
     }
     /* retrieve course listing from some DB.
        General: course information, student days and times;
@@ -36,8 +35,12 @@ public class ReportGen {
 
     private String getCourseListing(char usertype) {
 
-        // do nothing for now.
-        return "";
+        CourseSection courseListing = new CourseSection();
+        courseListing.getDBData();
+
+        
+        // pass the report form data to the screen (out).
+        return courseListing.getFormData();
     }
 
     /*
