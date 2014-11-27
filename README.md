@@ -29,10 +29,29 @@ folder.
 
 Make an instance of ReportGen in your program like so:
 
-    ReportGen someReport = new ReportGen();
+```java
+ReportGen someReport = new ReportGen();
+```
 
-and you're ready to start using ReportGen.
+and you're ready to start using ReportGen's methods.
 
+ReportGen's methods require at least two pieces of information, the submenu
+option provided by the user and the user's type (S=student, F=faculty, A=admin).
+Passing the user type to ReportGen itself is planned, but as of now each method
+receives the type.
+
+<h4> DB connectivity notes </h4>
+If at any time anyone wishes to make a database connection, you need only make an
+instance of DBConnection from any class you want (it doesn't have to be a helper
+class for use with ReportGen).
+
+For example:
+
+```java
+Connection connection = DBConnection.connect();
+```
+
+does the job for you if the class, DBConnection, is found in the working folder.
 
 
 
