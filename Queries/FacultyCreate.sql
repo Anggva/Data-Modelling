@@ -1,5 +1,5 @@
 --Create Table Statement
-CREATE TABLE Faculty(
+CREATE TABLE FacultyMembers(
 	FacultyNumber CHAR(9) PRIMARY KEY,
 	FirstName CHAR(15),
 	LastName CHAR(15),
@@ -11,8 +11,7 @@ CREATE TABLE Faculty(
 	Gender CHAR(1),
 	PhoneNumber CHAR(10),
 	isAdministrator CHAR(1),
-	Password CHAR(15),
-	FOREIGN KEY (CoursesTaught) REFERENCES Course(CourseNumber)
+	Password CHAR(15)
 	);
 --add foreign key
 ALTER TABLE Faculty
