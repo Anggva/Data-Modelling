@@ -1,8 +1,11 @@
 CREATE TABLE Section(
 	SectionNumber INTEGER PRIMARY KEY,
-	CourseNumber CHAR(10) FOREIGN KEY REFERENCES Courses(CourseNumber),
+	CourseNumber CHAR(10),
 	DaysOfTheWeek CHAR(5),
 	Time CHAR(10),
-	StudentsEnrolled CHAR(9) FOREIGN KEY REFERENCES Students(StudentNumber),
-	FacultyTeaching CHAR(15) FOREIGN KEY REFERENCES Faculty(FacultyNumber)
+	StudentsEnrolled CHAR(9),
+	FacultyTeaching CHAR(9),
+	FOREIGN KEY (CourseNumber) REFERENCES Course(CourseNumber),
+	FOREIGN KEY (StudentsEnrolled) REFERENCES Student(StudentNumber),
+	FOREIGN KEY (FacultyTeaching) REFERENCES Faculty(FacultyNumber)
 	);
