@@ -4,41 +4,40 @@
  *
  * TODO:
  * 1. Link to working menu
- * 2. Figure out login
- * 3. Once Queries are finished add in where necessary
+ * 2. Once Queries are finished add in where necessary
  */
-
 
 import java.sql.*;
 import java.util.*;
-import java.sql.*;
-
 
 public class AdminMenu {
-    public static void main (String[] args) {
 
-        //this will connect code to Olympia
+
+    public static void main(String[] args) {
+
+/*        //this will connect code to Olympia that we need to add to a main
         Connection connection;
         try {
-            Class.forName("oracle.jdbc.driver.OracleDriver");
+        Class.forName("oracle.jdbc.driver.OracleDriver");
         } catch (ClassNotFoundException e) {
-            System.out.println("Oracle JDBC .jar not found!");
-            return;
+        System.out.println("Oracle JDBC .jar not found!");
+        return;
         }
         // gets connection to olympia
         try {
-            connection = DriverManager.getConnection("jdbc:oracle:thin:@olympia.unfcsd.unf.edu:1521:dworcl", "teamlostinerwin", "team3bdpsvv");
+        connection = DriverManager.getConnection("jdbc:oracle:thin:@olympia.unfcsd.unf.edu:1521:dworcl", "teamlostinerwin", "team3bdpsvv");
         } catch (SQLException e) {
-            System.out.println("Connection to Olympia Failed!");
-            return;
+        System.out.println("Connection to Olympia Failed!");
+        return;
         }
         if (connection == null) {
-            System.out.println("Failed to establish connection.");
-            return;
-        }
+        System.out.println("Failed to establish connection.");
+        return;
+        */
 
-        showAdminMenu();
-    }
+    showAdminMenu();//needs to be called from the ROOT MENU, just here so my code will run
+
+}
 
 
     /*This will be the main Administrator Menu
@@ -143,7 +142,7 @@ public class AdminMenu {
             pnum = scan.nextLine();
             newUserInfo.add(pnum);
 
-            System.out.println("New User: " + newUserInfo.toString());
+            System.out.println("New Student User: " + newUserInfo.toString());
             System.out.println("Is this correct Y or N? ");
             Scanner choicescan = new Scanner(System.in);
             String stdadd = choicescan.nextLine();
@@ -152,7 +151,7 @@ public class AdminMenu {
                 //add query
                 //INSERT INTO Student VALUES (‘studentnumber’, ‘firstname’, ‘lastname’, ‘Fall/Spring/Summer’, ‘coursesneeded’, ‘MW/MWF/TH’, ‘Morning (9 am – Noon)/Afternoon (Noon – 4:15 pm)/Evening (4:30 pm – 9:10 pm)’, ‘M/F’, ‘phonenumber’);
                 //success
-                System.out.println("User successfully added!");
+                System.out.println("Student successfully added!");
                 showAdminMenu();
             }
             if(stdadd.equals("N")){
@@ -209,7 +208,7 @@ public class AdminMenu {
             isAdmin = scan.nextLine();
             newUserInfo.add(isAdmin);
 
-            System.out.println("New User: " + newUserInfo.toString());
+            System.out.println("New Faculty User: " + newUserInfo.toString());
             System.out.println("Is this correct Y or N? ");
             Scanner choicescan = new Scanner(System.in);
             String stdadd = choicescan.nextLine();
@@ -218,7 +217,7 @@ public class AdminMenu {
                 //add query
                 //INSERT INTO Faculty VALUES (‘facultynumber’, ‘firstname’, ‘lastname’, ‘position’, ‘areaofexpertise’, ‘coursestaught’, ‘MW/MWF/TH’,  ‘Morning (9 am – Noon)/Afternoon (Noon – 4:15 pm)/Evening (4:30 pm – 9:10 pm)’, ‘M/F’, ‘phonenumber’, ‘Y/N’);
                 //success
-                System.out.println("User successfully added!");
+                System.out.println("Faculty successfully added!");
                 showAdminMenu();
             }
             if(stdadd.equals("N")){
@@ -264,7 +263,7 @@ public class AdminMenu {
                 //Found: List all info pertaining to that user
                 System.out.println("User Information: ");
 
-                System.out.println("Are you sure you wish to delete user listed above? Y or N");
+                System.out.println("Are you sure you wish to delete Faculty listed above? Y or N");
                 Scanner newScan = new Scanner(System.in);
                 choice = scan.nextLine();
 
@@ -298,7 +297,7 @@ public class AdminMenu {
                 //Found: List all info pertaining to that user
                 System.out.println("User Information: ");
 
-                System.out.println("Are you sure you wish to delete user listed above? Y or N");
+                System.out.println("Are you sure you wish to delete Student listed above? Y or N");
                 Scanner newScan = new Scanner(System.in);
                 choice = scan.nextLine();
 
