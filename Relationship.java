@@ -1,4 +1,5 @@
-import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by Frank on 11/27/2014.
@@ -10,12 +11,12 @@ import java.util.ArrayList;
  */
 public abstract class Relationship {
 
-    private ArrayList<String> er = new ArrayList<String>();
+    private Map<String, Integer> er = new HashMap<String, Integer>();
 
     public abstract void getDBData();
 
     // create some relationships among two or more entities.
-    public ArrayList<String> makeRelations() {
+    public Map<String, Integer> makeRelations() {
 
         return er;
     }

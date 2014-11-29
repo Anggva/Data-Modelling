@@ -96,11 +96,11 @@ public class CourseSection extends Relationship {
 
     public void getDBData() {
 
-        Connection connection;
+
 
 
         try {
-            connection = DBConnection.connect();
+            Connection connection = DBConnection.connect();
 
             String query = "SELECT * FROM Section";
 
