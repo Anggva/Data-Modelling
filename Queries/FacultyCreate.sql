@@ -17,3 +17,16 @@ CREATE TABLE FacultyMembers(
 ALTER TABLE Faculty
 ADD FOREIGN KEY (CoursesTaught)
 REFERENCES Course(CourseNumber);
+
+
+alter table Faculty
+drop constraint CoursesTaught_fk;
+
+alter table Section
+add constraint FacultyTeaching
+foreign key(continent)
+references continent
+  5    on delete cascade;
+
+alter table FacultyMembers
+add PrefFormNumber CHAR(8);
