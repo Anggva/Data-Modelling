@@ -13,3 +13,9 @@ CREATE TABLE PreferenceForm(
 	DayPref INTEGER,
 	EveningPref INTEGER,
 	SummerPref CHAR(15));
+
+alter table PreferenceForm
+add constraint fk_FacultyNumber
+foreign key(FacultyNumber)
+references FacultyMembers(FacultyNumber)
+on delete cascade;

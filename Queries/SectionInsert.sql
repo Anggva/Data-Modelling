@@ -1,13 +1,15 @@
-INSERT INTO Section VALUES (31000, 'COP3100', 'MW', '9 am - 12 pm', 'S00000001', 'F20102010');
+INSERT INTO Sections VALUES (31000, 'COT3100', 'MW', '9 am - 10 am', 'F20102010');
 
-CREATE TABLE Section(
-	SectionNumber INTEGER PRIMARY KEY,
-	CourseNumber CHAR(10),
-	DaysOfTheWeek CHAR(5),
-	Time CHAR(10),
-	StudentsEnrolled CHAR(9),
-	FacultyTeaching CHAR(9),
-	FOREIGN KEY (CourseNumber) REFERENCES Course(CourseNumber),
-	FOREIGN KEY (StudentsEnrolled) REFERENCES Student(StudentNumber),
-	FOREIGN KEY (FacultyTeaching) REFERENCES Faculty(FacultyNumber)
-	);
+INSERT INTO Sections VALUES (31001, 'COT3100', 'MW', '10 am - 11 am', 'F33433433');
+
+INSERT INTO Sections VALUES (35380, 'COP3538', 'TR', '9 am - 10 am', 'F89089099');
+
+INSERT INTO Sections VALUES (42530, 'CIS4253', 'TR', '10 am - 11 am', 'F66644466');
+
+INSERT INTO Sections VALUES (46400, 'COP4640', 'MW', '12 pm - 1 pm', 'F22422422');
+
+INSERT INTO Sections VALUES (45100, 'CDA4510', 'MW', '1 pm - 2 pm', 'F90090099');
+
+INSERT INTO Sections VALUES (38550, 'COP3855', 'MW', '5 pm - 6 pm', 'F22422422');
+
+INSERT INTO Sections VALUES (43270, 'CIS4327', 'TR', '2 pm - 3 pm', 'F12312312');
