@@ -15,12 +15,12 @@ WHERE StudentNumber=ourStudentVar;
 --See a current course preference form for a particular faculty member
 SELECT *
 FROM PreferenceForm
-WHERE FacultyNumber=ourFacultyVar AND Current='Y';
+WHERE FacultyNumber=ourFacultyVar AND Crnt='Y';
 
 --See past course perference forms for a particular faculty member
 SELECT *
 FROM PreferenceForm
-WHERE FacultyNumber=ourFacultyVar AND Current='N';
+WHERE FacultyNumber=ourFacultyVar AND Crnt='N';
 
 --Add a new course preference form
 INSERT INTO PreferenceForm
@@ -29,5 +29,5 @@ VALUES (NewFormNumber, NewFacultyNumber, NewSemester, NewNumberOfCourses, NewCou
 
 --Update an old course preference form before the new one is created
 UPDATE PreferenceForm
-SET Current='N'
+SET Crnt='N'
 WHERE FacultyNumber=ourFacultyVar;
