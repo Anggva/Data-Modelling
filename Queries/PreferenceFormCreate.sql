@@ -13,7 +13,7 @@ CREATE TABLE PreferenceForm(
 	DayPref INTEGER,
 	EveningPref INTEGER,
 	SummerPref CHAR(15),
-	Current CHAR(1));
+	Crnt CHAR(1));
 
 alter table PreferenceForm
 add constraint fk_FacultyNumber
@@ -22,4 +22,4 @@ references FacultyMembers(FacultyNumber)
 on delete cascade;
 
 ALTER TABLE PreferenceForm
-ADD COLUMN Current CHAR(1);
+ADD Crnt CHAR(1);
