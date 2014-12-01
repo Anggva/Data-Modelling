@@ -10,11 +10,23 @@ public class Login {
 
     private static String username;
     private static String password;
-    private char usertype;
+    private static char usertype;
 
-    public char getUsertype() {
+    public static char getUsertype() {
 
         return usertype;
+    }
+
+    public boolean isAdministrator(String FacultyNumber) throws SQLException {
+
+        Connection connection = DBConnection.connect();
+
+
+        String query = "SELECT isAdministrator FROM Faculty WHERE FacultyNumber = " + FacultyNumber;
+
+        ResultSet resultSet = connection.createStatement().executeQuery(query);
+
+        return true;
     }
 
     public String getUsername() {
@@ -27,16 +39,26 @@ public class Login {
         return password;
     }
 
-    private static char computeUsertype() throws SQLException {
+    private void checkUser(String facultyNumber) throws SQLException {
 
-        Connection connection = new DBConnection().connect();
 
-        String query = "SELECT type FROM Users WHERE username = " + username;
-        ResultSet resultSet = connection.createStatement().executeQuery(query);
+        new DBConnection();
+        Connection connection = DBConnection.connect();
 
-        char[] arrtype = resultSet.getString(1).toCharArray();
+        char usertype = getUsertype();
 
-        return arrtype[0];
+        if (usertype == 'F') {
+
+            String query = "SELECT Password FROM Faculty WHERE FacultyNumber = " + facultyNumber;
+
+            ResultSet resultSet = connection.createStatement().executeQuery(query);
+
+            while(resultSet.next()) {
+                resultSet.getString(1);
+                
+            }
+        }
+
     }
 
     public void showLogin() {
