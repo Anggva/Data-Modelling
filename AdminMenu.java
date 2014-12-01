@@ -19,7 +19,7 @@ public class AdminMenu {
         Connection connection;
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver");
-        } catch (ClassNotFoundException e) {
+        } catch (ClassNotFoundException e) { 
             System.out.println("Oracle JDBC .jar not found!");
             return;
         }
