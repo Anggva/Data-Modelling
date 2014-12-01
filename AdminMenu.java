@@ -4,24 +4,22 @@
  *
  * TODO:
  * 1. Link to working menu
- * 2. Figure out login
- * 3. Once Queries are finished add in where necessary
+ * 2. Once Queries are finished add in where necessary
  */
-
 
 import java.sql.*;
 import java.util.*;
-import java.sql.*;
-
 
 public class AdminMenu {
-    public static void main (String[] args) {
 
-        //this will connect code to Olympia
+
+    public static void main(String[] args) {
+
+        //this will connect code to Olympia that we need to add to a main
         Connection connection;
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver");
-        } catch (ClassNotFoundException e) {
+        } catch (ClassNotFoundException e) { 
             System.out.println("Oracle JDBC .jar not found!");
             return;
         }
@@ -37,8 +35,9 @@ public class AdminMenu {
             return;
         }
 
-        showAdminMenu();
-    }
+            showAdminMenu();//needs to be called from the ROOT MENU, just here so my code will run
+
+        }
 
 
     /*This will be the main Administrator Menu
@@ -93,15 +92,18 @@ public class AdminMenu {
         String fn;
         String ln;
         String sem;
-        String crsneed;
-        String prefcourse;
+       // String crsneed;
+       // String prefcourse;
         String days;
         String time;
         String gender;
         String pnum;
         String position;
         String aoe;
+        String pw;
         String coursesTaught;
+        String facNum;
+        String studNum;
         String isAdmin;///DOES THIS NEED TO BE GLOBAL??
         Scanner scan = new Scanner(System.in);
 
@@ -110,6 +112,10 @@ public class AdminMenu {
         if(choice.equals("S")){
             System.out.println("------Creating New Student User------");
             System.out.println("Please enter new user information for EVERY field");
+
+            System.out.print("Student Number: ");
+            studNum = scan.nextLine();
+            newUserInfo.add(studNum);
 
             System.out.print("First Name: ");
             fn = scan.nextLine();
@@ -123,9 +129,9 @@ public class AdminMenu {
             sem = scan.nextLine();
             newUserInfo.add(sem);
 
-            System.out.print("Courses Needed: ");
+/*            System.out.print("Courses Needed: ");
             crsneed = scan.nextLine();
-            newUserInfo.add(crsneed);
+            newUserInfo.add(crsneed);*/
 
             System.out.print("Preferred Course Days (MTWRF): ");
             days = scan.nextLine();
@@ -143,16 +149,34 @@ public class AdminMenu {
             pnum = scan.nextLine();
             newUserInfo.add(pnum);
 
-            System.out.println("New User: " + newUserInfo.toString());
+            System.out.println("New Student User: " + newUserInfo.toString());
             System.out.println("Is this correct Y or N? ");
             Scanner choicescan = new Scanner(System.in);
             String stdadd = choicescan.nextLine();
 
+            String newSNumber = newUserInfo.get(0);//do I need to cast any of these?
+            String newFirstName = newUserInfo.get(1);
+            String newLastName = newUserInfo.get(2);
+            String newSemester = newUserInfo.get(3);
+            String newDays = newUserInfo.get(4);
+            String newTime = newUserInfo.get(5);
+            String newGender = newUserInfo.get(6);
+            String newPhoneNumber = newUserInfo.get(7);
+
             if(stdadd.equals("Y")){
+                String insertQuery = "INSERT INTO Students VALUES('" + newSNumber + "','" + newFirstName + "','" + newLastName + "','" + newSemester + "','" + newDays + "','" + newTime + "','" + newGender + "','" + newPhoneNumber + "');";
+
                 //add query
-                //INSERT INTO Student VALUES (‘studentnumber’, ‘firstname’, ‘lastname’, ‘Fall/Spring/Summer’, ‘coursesneeded’, ‘MW/MWF/TH’, ‘Morning (9 am – Noon)/Afternoon (Noon – 4:15 pm)/Evening (4:30 pm – 9:10 pm)’, ‘M/F’, ‘phonenumber’);
+                Connection connection;
+                try {
+                    connection = DBConnection.connect();
+                    Statement stmt = connection.createStatement();
+                    stmt.executeUpdate(insertQuery);
+                }
+                catch(Exception e){System.err.println(e.getMessage());}
+
                 //success
-                System.out.println("User successfully added!");
+                System.out.println("Student successfully added!");
                 showAdminMenu();
             }
             if(stdadd.equals("N")){
@@ -167,7 +191,11 @@ public class AdminMenu {
         }
         if(choice.equals("F")){
             System.out.println("------Creating New Faculty User------");
-            System.out.println("Please enter new user information for EVERY field with NO spaces");
+            System.out.println("Please enter new user information for EVERY field");
+
+            System.out.print("Faculty Number: ");
+            facNum = scan.nextLine();
+            newUserInfo.add('N'+facNum);
 
             System.out.print("First Name: ");
             fn = scan.nextLine();
@@ -209,16 +237,42 @@ public class AdminMenu {
             isAdmin = scan.nextLine();
             newUserInfo.add(isAdmin);
 
-            System.out.println("New User: " + newUserInfo.toString());
+            System.out.print("Password for new user:  ");
+            pw = scan.nextLine();
+            newUserInfo.add(pw);
+
+            System.out.println("New Faculty User: " + newUserInfo.toString());
             System.out.println("Is this correct Y or N? ");
             Scanner choicescan = new Scanner(System.in);
             String stdadd = choicescan.nextLine();
 
+            String newFacultyNumber = newUserInfo.get(0);//do I need to cast any of these?
+            String newFirstName = newUserInfo.get(1);
+            String newLastName = newUserInfo.get(2);
+            String newPosition = newUserInfo.get(3);
+            String newAreaOfExpertise = newUserInfo.get(4);
+            String newDays = newUserInfo.get(5);
+            String newTimes = newUserInfo.get(6);
+            String newGender = newUserInfo.get(7);
+            String newPhone = newUserInfo.get(8);
+            String newPriveleges = newUserInfo.get(9);
+            String newPassword = newUserInfo.get(10);
+
             if(stdadd.equals("Y")){
+                String insertQuery = "INSERT INTO FacultyMembers VALUES('"+newFacultyNumber+"','"+newFirstName+"','"+newLastName+"','"+newPosition+"','"+newAreaOfExpertise+"','"+newDays+"','"+newTimes+"','"+newGender+"','"+newPhone+"','"+newPriveleges+"','"+newPassword+"');";
+                System.out.println("Insert "+insertQuery);
+
                 //add query
-                //INSERT INTO Faculty VALUES (‘facultynumber’, ‘firstname’, ‘lastname’, ‘position’, ‘areaofexpertise’, ‘coursestaught’, ‘MW/MWF/TH’,  ‘Morning (9 am – Noon)/Afternoon (Noon – 4:15 pm)/Evening (4:30 pm – 9:10 pm)’, ‘M/F’, ‘phonenumber’, ‘Y/N’);
+                Connection connection;
+                try {
+                    connection = DBConnection.connect();
+                    Statement stmt = connection.createStatement();
+                    stmt.executeUpdate(insertQuery);
+                }
+                catch(Exception e){System.err.println(e.getMessage());}
+
                 //success
-                System.out.println("User successfully added!");
+                System.out.println("Faculty successfully added!");
                 showAdminMenu();
             }
             if(stdadd.equals("N")){
@@ -256,87 +310,98 @@ public class AdminMenu {
         Scanner scan = new Scanner(System.in);
         userInQuestion = scan.nextLine();
 
-        first = userInQuestion.charAt(0);
+        String searchQuery = "SELECT FROM FacultyMembers WHERE FacultyNumber="+scan+";";
 
-        if(first == 'F'){
-            //SELECT from Faculty WHERE FacultyNumber = userInQuestion;
-            if(found){
+        Connection connection;
+        try {
+            connection = DBConnection.connect();
+            Statement stmt = connection.createStatement();
+            found = stmt.execute(searchQuery);
+        }
+        catch(Exception e){System.err.println(e.getMessage());}
+        if(found) {
+
+            first = userInQuestion.charAt(0);
+
+            if (first == 'F') {
+
+
                 //Found: List all info pertaining to that user
                 System.out.println("User Information: ");
 
-                System.out.println("Are you sure you wish to delete user listed above? Y or N");
+                System.out.println("Are you sure you wish to delete Faculty listed above? Y or N");
                 Scanner newScan = new Scanner(System.in);
                 choice = scan.nextLine();
 
-                if(choice.equals("Y")){
-                    System.out.println("You chose yes");
-                    // DELETE from Faculty WHERE FacultyNumber = userInQuestion;
+                if (choice.equals("Y")) {
+                    String deleteQuery = "DELETE FROM FacultyMembers WHERE FacultyNumber=" + userInQuestion + ";";
+
+                    try {
+                        connection = DBConnection.connect();
+                        Statement stmt = connection.createStatement();
+                        stmt.execute(deleteQuery);
+                    } catch (Exception e) {
+                        System.err.println(e.getMessage());
+                    }
+
                     //Call to DELETE QUERY
                     //success and return to admin main menu
-                }
-                else if (choice.equals("N")){
+                    showAdminMenu();
+                } else if (choice.equals("N")) {
                     System.out.println("You chose no");
                     // Return to Admin main menu
                     showAdminMenu();
-                }
-                else {
+                } else {
                     System.out.println("Command Not recognized");
                     // Return to Admin main menu
                     showAdminMenu();
                 }
-            }
 
-            if(!found){
-                System.out.println("We did not find who you were looking for.");
-                // Return to Admin main menu
-                showAdminMenu();
             }
-        }
-        if(first == 'S'){
-            //   SELECT from Student WHERE StudentNumber = userInQuestion;
-            if(found){
+            if (first == 'S') {
+                //   SELECT from Student WHERE StudentNumber = userInQuestion;
                 //Found: List all info pertaining to that user
                 System.out.println("User Information: ");
 
-                System.out.println("Are you sure you wish to delete user listed above? Y or N");
+                System.out.println("Are you sure you wish to delete Student listed above? Y or N");
                 Scanner newScan = new Scanner(System.in);
                 choice = scan.nextLine();
 
-                if(choice.equals("Y")){
-                    System.out.println("You chose yes");
-                    // DELETE from Student WHERE StudentNumber = userInQuestion;
-                    //Call to DELETE QUERY
+                if (choice.equals("Y")) {
+                    String deleteQuery = "DELETE FROM Students WHERE StudentNumber=" + userInQuestion + ";";
+
+                    try {
+                        connection = DBConnection.connect();
+                        Statement stmt = connection.createStatement();
+                        stmt.execute(deleteQuery);
+                    } catch (Exception e) {
+                        System.err.println(e.getMessage());
+                    }
+
                     //success and return to admin main menu
                     showAdminMenu();
-                }
-                else if (choice.equals("N")){
+                } else if (choice.equals("N")) {
                     System.out.println("Student will not be deleted");
                     // Return to Admin main menu
                     showAdminMenu();
-                }
-                else {
+                } else {
                     System.out.println("Command Not recognized");
                     // Return to Admin main menu
                     showAdminMenu();
                 }
             }
-
-            if(!found){
-                System.out.println("We did not find who you were looking for.");
-                // Return to Admin main menu
-                showAdminMenu();
-            }
+        }
+        if(!found){
+            System.out.println("We did not find who you were looking for.");
+            // Return to Admin main menu
+            showAdminMenu();
         }
         else {
             System.out.println("Command Not recognized");
             // Return to Admin main menu
             showAdminMenu();
         }
-
-
-
     }
-
 
     /*ChangePriv() will walk Administrators through changing
     *an existing faculty member in the DB to and from Administrators
@@ -345,30 +410,67 @@ public class AdminMenu {
     public static void ChangePriv(){
         /* This will change a faculties isAdmin privileges back and forth*/
         System.out.println("------CHANGE USER PRIVILEGES------");
-        String choice;
+        String facultyInQuestion;
+        Connection connection;
+        boolean found = true;
 
         System.out.println("Please enter the Faculty User Number: ");
         Scanner scan = new Scanner(System.in);
-        boolean found = true;
+        facultyInQuestion = scan.nextLine();
+
+        String searchQuery = "SELECT FROM FacultyMembers WHERE FacultyNumber="+facultyInQuestion+";";
+
+        try {
+            connection = DBConnection.connect();
+            Statement stmt = connection.createStatement();
+            found = stmt.execute(searchQuery);
+        }
+        catch(Exception e){System.err.println(e.getMessage());}
+
 
         if(found){
             //NEED AN ADMIN CHECK
+            //TODO:
             //Found: List all info pertaining to that user
             System.out.println("User Information: ");
 
             System.out.println("Are you sure you wish to change user privileges? Y or N");
             Scanner newScan = new Scanner(System.in);
-            choice = scan.nextLine();
+            facultyInQuestion = scan.nextLine();
 
-            if(choice.equals("Y")){
-                //what are we changing???
-                //change/alter DB
+            if(facultyInQuestion.equals("Y")){
+
+                //check is faculty is admin or not
+                String isAdmin = "Y";
+
+                if(isAdmin.equals("Y")){
+                    String no = "N";
+                    String updateQuery = "UPDATE FacultyMembers SET isAdministrator="+no+" WHERE FacultyNumber="+facultyInQuestion+";";
+                    try {
+                        connection = DBConnection.connect();
+                        Statement stmt = connection.createStatement();
+                        found = stmt.execute(updateQuery);
+                    }
+                    catch(Exception e){System.err.println(e.getMessage());}
+
+
+                }
+                if(isAdmin.equals("N")){
+                    String yes = "Y";
+                    String updateQuery = "UPDATE FacultyMembers SET isAdministrator="+yes+" WHERE FacultyNumber="+facultyInQuestion+";";
+                    try {
+                        connection = DBConnection.connect();
+                        Statement stmt = connection.createStatement();
+                        found = stmt.execute(updateQuery);
+                    }
+                    catch(Exception e){System.err.println(e.getMessage());}
+                }
+
                 //success and return to admin main menu
-                //success
                 System.out.println("User successfully updated!");
                 showAdminMenu();
             }
-            else if (choice.equals("N")){
+            else if (facultyInQuestion.equals("N")){
                 // Return to Admin main menu
                 System.out.println("User NOT updated.");
                 showAdminMenu();
