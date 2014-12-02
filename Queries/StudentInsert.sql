@@ -1,0 +1,1 @@
+INSERT INTO Student VALUES (‘studentnumber’, ‘firstname’, ‘lastname’, ‘Fall/Spring/Summer’, ‘coursesneeded’, ‘MW/MWF/TH’, ‘Morning (9 am – Noon)/Afternoon (Noon – 4:15 pm)/Evening (4:30 pm – 9:10 pm)’, ‘M/F’, ‘phonenumber’);
