@@ -16,7 +16,7 @@ public class Login {
     private String username;
     private String password;
 
-    public Character getUsertype() {
+    public char getUsertype() {
 
 
         return username.charAt(0);
