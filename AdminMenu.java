@@ -20,24 +20,24 @@ public class AdminMenu {
     * */
 
 
-    public static void main(String[] args) {
+/*    public static void main(String[] args) {
 
         //this will connect code to Olympia that we need to add to a main
 
 
             showAdminMenu();//needs to be called from the ROOT MENU, just here so my code will run
 
-        }
+        }*/
 
 
     /*This will be the main Administrator Menu
-    * As long as the user logged in has an F# and is and Administrator
-    * they will have privileges to view this menu.
-    * Options:
-    *   1) create/add a new user to the DB
-    *   2) delete a current user
-    *   3) change the privileges of a faculty member to and from Administrator
-    *   4) return to the main menu*/
+* As long as the user logged in has an F# and is and Administrator
+* they will have privileges to view this menu.
+* Options:
+*   1) create/add a new user to the DB
+*   2) delete a current user
+*   3) change the privileges of a faculty member to and from Administrator
+*   4) return to the main menu*/
     public static void showAdminMenu() {
         System.out.println();
         System.out.println("\tAdministrator Menu");
@@ -62,13 +62,16 @@ public class AdminMenu {
                 ChangePriv();
                 break;
             case 4:
-
-                System.out.println("Going up to main menu.\n");
+                char usertype = 'F';
+                RootMenu root = new RootMenu(usertype);
+                root.showMainMenu();
+               // System.out.println("Going up to main menu.\n");
                 return;
             default:
                 System.out.println("Command Not recognized");
         }
     }
+
 
 
     /*AddUser() will walk Administrators through adding a new
