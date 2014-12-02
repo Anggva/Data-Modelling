@@ -26,6 +26,8 @@ public class Login {
         String query = "SELECT isAdministrator FROM Faculty WHERE FacultyNumber = " + FacultyNumber;
 
         ResultSet resultSet = connection.createStatement().executeQuery(query);
+        resultSet.close();
+        connection.close();
 
         return true;
     }
@@ -40,7 +42,7 @@ public class Login {
         return password;
     }
 
-    private void checkUser(String facultyNumber) throws SQLException {
+    private void checkUser(String number) throws SQLException {
 
 
         new DBConnection();
@@ -50,11 +52,22 @@ public class Login {
 
         if (usertype == 'F') {
 
-            String query = "SELECT Password FROM Faculty WHERE FacultyNumber = " + facultyNumber;
+            String query = "SELECT Password FROM Faculty WHERE FacultyNumber = " + number;
 
             ResultSet resultSet = connection.createStatement().executeQuery(query);
 
-            while(resultSet.next()) resultSet.getString(1);
+            while (resultSet.next()) resultSet.getString(1);
+
+            resultSet.close();
+            connection.close();
+
+        } else if (usertype == 'S') {
+
+            String query = "SELECT Password FROM Student WHERE StudentNumber = " + number;
+
+            ResultSet resultSet = connection.createStatement().executeQuery(query);
+
+            while (resultSet.next()) resultSet.getString(1);
 
             resultSet.close();
             connection.close();
