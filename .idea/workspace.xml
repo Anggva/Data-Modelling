@@ -4,7 +4,6 @@
     <list default="true" id="4bd607f3-e5a2-455f-a9a2-9370331c266a" name="Default" comment="">
       <change type="DELETED" beforePath="C:\Users\User Name\Documents\DATA MODELING\Data-Modelling\out\production\Data-Modelling\random text.txt" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AdminMenu.java" afterPath="$PROJECT_DIR$/AdminMenu.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Data-Modelling.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,8 +31,8 @@
       <file leaf-file-name="AdminMenu.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AdminMenu.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.21860987" vertical-offset="825" max-vertical-offset="1717">
-              <caret line="60" column="19" selection-start-line="60" selection-start-column="19" selection-end-line="60" selection-end-column="19" />
+            <state vertical-scroll-proportion="0.7141256" vertical-offset="825" max-vertical-offset="1717">
+              <caret line="288" column="56" selection-start-line="288" selection-start-column="56" selection-end-line="288" selection-end-column="56" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="imports" expanded="true" />
@@ -793,8 +792,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AdminMenu.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.21860987" vertical-offset="825" max-vertical-offset="1717">
-          <caret line="60" column="19" selection-start-line="60" selection-start-column="19" selection-end-line="60" selection-end-column="19" />
+        <state vertical-scroll-proportion="0.7141256" vertical-offset="825" max-vertical-offset="1717">
+          <caret line="288" column="56" selection-start-line="288" selection-start-column="56" selection-end-line="288" selection-end-column="56" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />

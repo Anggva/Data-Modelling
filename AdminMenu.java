@@ -68,7 +68,7 @@ public class AdminMenu {
                // System.out.println("Going up to main menu.\n");
                 return;
             default:
-                System.out.println("Command Not recognized");
+                System.out.println("error: a menu selection specified is out of bounds. Select 1-4.");
         }
     }
 
