@@ -283,7 +283,7 @@ public class AdminMenu {
         String choice;
         char first;
         boolean found = true;
-        Connection connection;
+       // Connection connection;
 
         System.out.println("Please enter the User Number you would like to delete: ");
         Scanner scan = new Scanner(System.in);
@@ -325,7 +325,9 @@ public class AdminMenu {
                 if (choice.equals("Y")) {
                     String deleteQuery = "DELETE FROM FacultyMembers WHERE FacultyNumber='"+ userInQuestion+"'";
                     System.out.println("query "+deleteQuery);
+
                     try {
+                        Connection connection;
                         System.out.println("got into try");
                         connection = DBConnection.connect();
                         Statement stmt = connection.createStatement();
@@ -366,6 +368,7 @@ public class AdminMenu {
                         ResultSet rst = stmt.executeQuery(deleteQuery);
                         ResultSetMetaData rsmd = rst.getMetaData();
                         int numColumns = rsmd.getColumnCount();*/
+                        Connection connection;
 
                         connection = DBConnection.connect();
                         Statement stmt = connection.createStatement();
