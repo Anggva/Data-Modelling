@@ -5,6 +5,11 @@ import java.util.*;
 
 /**
  * Created by Frank on 11/28/2014.
+ *
+ *  The order in using the auth methods is important.
+ *  isAdministrator() should be called after checkUser(), and checkUser() requires
+ *  user's username and pass with showLogin().
+ *
  */
 public class Login {
 
@@ -28,8 +33,11 @@ public class Login {
 
         while (resultSet.next()) chadmin = resultSet.getString(1).charAt(0);
 
-        // if our check-admin variable contains a Y, we have a user in the database who is an
-        // administrator, return true for this user.
+        /* if our check-admin variable contains a Y, we have a user in the database who is an
+         administrator, return true for this user.
+
+          it is better to have the isAdministrator column type BOOLEAN, but this will do..
+         */
         if (chadmin == 'Y')
             return true;
 
@@ -100,12 +108,12 @@ public class Login {
     public void showLogin() {
 
 
-        System.out.println("Username: ");
+        System.out.print("Username: ");
         Scanner scanCredentials = new Scanner(System.in);
 
         username = scanCredentials.nextLine().trim();
 
-        System.out.println("Password: ");
+        System.out.print("\nPassword: ");
         password = scanCredentials.nextLine().trim();
 
 
