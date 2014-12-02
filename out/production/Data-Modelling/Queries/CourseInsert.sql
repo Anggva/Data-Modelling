@@ -1,0 +1,1 @@
+INSERT INTO Course VALUES (‘coursenumber’, ‘coursedescription’, ‘type’, credithours, ‘cost’);

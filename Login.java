@@ -1,25 +1,40 @@
-
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.*;
 
+
+/**
+ * Created by Frank on 11/28/2014.
+ *
+ *  The order in using the auth methods is important.
+ *  isAdministrator() should be called after checkUser(), and checkUser() requires
+ *  user's username and pass with showLogin().
+ *
+ */
 public class Login {
 
-    private static String username;
-    private static String password;
-    private static char usertype;
+    private String username;
+    private String password;
+    private boolean authenticated;
 
-    public static Character getUsertype() {
-
+    private char getUsertype() {
 
         return username.charAt(0);
+    }
+
+    public void logout() {
+
+        username = null;
+        password = null;
+        authenticated = false;
+        System.out.println("You are now logged out.");
     }
 
     public boolean isAdministrator(String FacultyNumber) throws SQLException {
 
         Connection connection = DBConnection.connect();
-        char chadmin ='N';
+        char chadmin = 'N';
 
         String query = "SELECT isAdministrator FROM Faculty WHERE FacultyNumber = " + FacultyNumber;
 
@@ -27,8 +42,15 @@ public class Login {
 
         while (resultSet.next()) chadmin = resultSet.getString(1).charAt(0);
 
+
         // if our check-admin variable contains a Y, we have a user in the database who is an
         // administrator, return true for this user.
+
+        /* if our check-admin variable contains a Y, we have a user in the database who is an
+         administrator, return true for this user.
+
+          it is better to have the isAdministrator column type BOOLEAN, but this will do..
+         */
         if (chadmin == 'Y')
             return true;
 
@@ -43,13 +65,14 @@ public class Login {
         return username;
     }
 
+
     public String getPassword() {
 
         return password;
     }
 
-    private boolean checkUser(String number) throws SQLException {
 
+    private boolean checkUser(String number) throws SQLException {
 
         new DBConnection();
         Connection connection = DBConnection.connect();
@@ -57,6 +80,7 @@ public class Login {
         char usertype = getUsertype();
         String dbpasswd = "default";
 
+        //  String dbpasswd = null;
 
         if (usertype == 'F') {
 
@@ -64,9 +88,13 @@ public class Login {
 
             ResultSet resultSet = connection.createStatement().executeQuery(query);
 
-            while (resultSet.next()) password = resultSet.getString(1);
+
+            while (resultSet.next()) dbpasswd = resultSet.getString(1);
 
             if (password.equals(dbpasswd)) {
+                System.out.println("You are logged in with role, 'faculty'");
+                authenticated = true;
+
                 return true;
             }
 
@@ -79,10 +107,13 @@ public class Login {
 
             ResultSet resultSet = connection.createStatement().executeQuery(query);
 
-            while (resultSet.next()) resultSet.getString(1);
+
+            while (resultSet.next()) dbpasswd = resultSet.getString(1);
 
             // if the password matches the password in the database column, we are authenticated.
             if (password.equals(dbpasswd)) {
+                System.out.println("You are logged in with role, 'student'");
+                authenticated = true;
                 return true;
             }
             resultSet.close();
@@ -107,6 +138,12 @@ public class Login {
         System.out.println("Password: ");
         password = scanCredentials.nextLine();
 
+    }
+
+
+    public boolean isAuthenticated() {
+
+        return authenticated;
 
     }
 }

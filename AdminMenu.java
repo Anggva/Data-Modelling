@@ -12,6 +12,13 @@ import java.util.*;
 
 public class AdminMenu {
 
+    /* main (...) here will not be necessary when the project is finalized,
+    * so I left it alone.
+    *
+    * I copied the code that was here and put it in the DBConnection class
+    * since I had that in my branch.
+    * */
+
 
     public static void main(String[] args) {
 
