@@ -16,24 +16,7 @@ public class AdminMenu {
     public static void main(String[] args) {
 
         //this will connect code to Olympia that we need to add to a main
-        Connection connection;
-        try {
-            Class.forName("oracle.jdbc.driver.OracleDriver");
-        } catch (ClassNotFoundException e) { 
-            System.out.println("Oracle JDBC .jar not found!");
-            return;
-        }
-        // gets connection to olympia
-        try {
-            connection = DriverManager.getConnection("jdbc:oracle:thin:@olympia.unfcsd.unf.edu:1521:dworcl", "teamlostinerwin", "team3bdpsvv");
-        } catch (SQLException e) {
-            System.out.println("Connection to Olympia Failed!");
-            return;
-        }
-        if (connection == null) {
-            System.out.println("Failed to establish connection.");
-            return;
-        }
+
 
             showAdminMenu();//needs to be called from the ROOT MENU, just here so my code will run
 
@@ -72,6 +55,7 @@ public class AdminMenu {
                 ChangePriv();
                 break;
             case 4:
+
                 System.out.println("Going up to main menu.\n");
                 return;
             default:
@@ -145,7 +129,7 @@ public class AdminMenu {
             gender = scan.nextLine();
             newUserInfo.add(gender);
 
-            System.out.print("Phone Number (XXX-XXX-XXXX): ");
+            System.out.print("Phone Number (XXXAAAXXXX): ");
             pnum = scan.nextLine();
             newUserInfo.add(pnum);
 
@@ -164,7 +148,7 @@ public class AdminMenu {
             String newPhoneNumber = newUserInfo.get(7);
 
             if(stdadd.equals("Y")){
-                String insertQuery = "INSERT INTO Students VALUES('" + newSNumber + "','" + newFirstName + "','" + newLastName + "','" + newSemester + "','" + newDays + "','" + newTime + "','" + newGender + "','" + newPhoneNumber + "');";
+                String insertQuery = "INSERT INTO Students VALUES('" + newSNumber + "','" + newFirstName + "','" + newLastName + "','" + newSemester + "','" + newDays + "','" + newTime + "','" + newGender + "','" + newPhoneNumber + "')";
 
                 //add query
                 Connection connection;
@@ -195,7 +179,7 @@ public class AdminMenu {
 
             System.out.print("Faculty Number: ");
             facNum = scan.nextLine();
-            newUserInfo.add('N'+facNum);
+            newUserInfo.add(facNum);
 
             System.out.print("First Name: ");
             fn = scan.nextLine();
@@ -213,11 +197,8 @@ public class AdminMenu {
             aoe = scan.nextLine();
             newUserInfo.add(aoe);
 
-            System.out.print("Courses Taught: ");
-            coursesTaught = scan.nextLine();
-            newUserInfo.add(coursesTaught);
 
-            System.out.print("Preferred Course Days (MW-TR-MWF):");
+            System.out.print("Preferred Course Days (MTWRF):");
             days = scan.nextLine();
             newUserInfo.add(days);
 
@@ -229,7 +210,7 @@ public class AdminMenu {
             gender = scan.nextLine();
             newUserInfo.add(gender);
 
-            System.out.print("Phone Number (XXX-XXX-XXXX): ");
+            System.out.print("Phone Number (XXXAAAXXXX): ");
             pnum = scan.nextLine();
             newUserInfo.add(pnum);
 
@@ -259,8 +240,7 @@ public class AdminMenu {
             String newPassword = newUserInfo.get(10);
 
             if(stdadd.equals("Y")){
-                String insertQuery = "INSERT INTO FacultyMembers VALUES('"+newFacultyNumber+"','"+newFirstName+"','"+newLastName+"','"+newPosition+"','"+newAreaOfExpertise+"','"+newDays+"','"+newTimes+"','"+newGender+"','"+newPhone+"','"+newPriveleges+"','"+newPassword+"');";
-                System.out.println("Insert "+insertQuery);
+                String insertQuery = "INSERT INTO FacultyMembers VALUES('"+newFacultyNumber+"','"+newFirstName+"','"+newLastName+"','"+newPosition+"','"+newAreaOfExpertise+"','"+newDays+"','"+newTimes+"','"+newGender+"','"+newPhone+"','"+newPriveleges+"','"+newPassword+"')";
 
                 //add query
                 Connection connection;
@@ -271,8 +251,6 @@ public class AdminMenu {
                 }
                 catch(Exception e){System.err.println(e.getMessage());}
 
-                //success
-                System.out.println("Faculty successfully added!");
                 showAdminMenu();
             }
             if(stdadd.equals("N")){
@@ -305,46 +283,58 @@ public class AdminMenu {
         String choice;
         char first;
         boolean found = true;
+        Connection connection;
 
         System.out.println("Please enter the User Number you would like to delete: ");
         Scanner scan = new Scanner(System.in);
         userInQuestion = scan.nextLine();
 
-        String searchQuery = "SELECT FROM FacultyMembers WHERE FacultyNumber="+scan+";";
+//        String searchQuery = "SELECT FROM FacultyMembers WHERE FacultyNumber="+userInQuestion+";";
 
-        Connection connection;
-        try {
+
+      /*  try {
             connection = DBConnection.connect();
             Statement stmt = connection.createStatement();
             found = stmt.execute(searchQuery);
         }
         catch(Exception e){System.err.println(e.getMessage());}
-        if(found) {
+        if(found) {*/
 
             first = userInQuestion.charAt(0);
 
             if (first == 'F') {
-
-
+                System.out.println("Number entered: "+userInQuestion);
                 //Found: List all info pertaining to that user
-                System.out.println("User Information: ");
+/*                String userInfo = "SELECT FROM FacultyMembers WHERE FacultyNu='"+userInQuestion+"';";
+                try {
+                    connection = DBConnection.connect();
+                   // Statement stmt = connection.createStatement();
+                   // ResultSet printUserInfo = stmt.executeQuery(userInfo);
+                    ResultSet printUserInfo = connection.createStatement().executeQuery(userInfo);
+                    //Call to DELETE QUERY
+                    System.out.println(printUserInfo.toString());
+
+                } catch (Exception e) {
+                    System.err.println(e.getMessage());
+                }*/
 
                 System.out.println("Are you sure you wish to delete Faculty listed above? Y or N");
                 Scanner newScan = new Scanner(System.in);
                 choice = scan.nextLine();
 
                 if (choice.equals("Y")) {
-                    String deleteQuery = "DELETE FROM FacultyMembers WHERE FacultyNumber=" + userInQuestion + ";";
-
+                    String deleteQuery = "DELETE FROM FacultyMembers WHERE FacultyNumber='"+ userInQuestion+"'";
+                    System.out.println("query "+deleteQuery);
                     try {
+                        System.out.println("got into try");
                         connection = DBConnection.connect();
                         Statement stmt = connection.createStatement();
-                        stmt.execute(deleteQuery);
+                        stmt.execute(deleteQuery);//Call to DELETE QUERY
                     } catch (Exception e) {
                         System.err.println(e.getMessage());
                     }
 
-                    //Call to DELETE QUERY
+
                     //success and return to admin main menu
                     showAdminMenu();
                 } else if (choice.equals("N")) {
@@ -361,16 +351,22 @@ public class AdminMenu {
             if (first == 'S') {
                 //   SELECT from Student WHERE StudentNumber = userInQuestion;
                 //Found: List all info pertaining to that user
-                System.out.println("User Information: ");
+                System.out.println("Number entered: "+userInQuestion);
 
                 System.out.println("Are you sure you wish to delete Student listed above? Y or N");
                 Scanner newScan = new Scanner(System.in);
                 choice = scan.nextLine();
 
                 if (choice.equals("Y")) {
-                    String deleteQuery = "DELETE FROM Students WHERE StudentNumber=" + userInQuestion + ";";
+                    String deleteQuery = "DELETE FROM Students WHERE StudentNumber='" + userInQuestion + "'";
 
                     try {
+/*                        connection = DBConnection.connect();
+                        Statement stmt = connection.createStatement();
+                        ResultSet rst = stmt.executeQuery(deleteQuery);
+                        ResultSetMetaData rsmd = rst.getMetaData();
+                        int numColumns = rsmd.getColumnCount();*/
+
                         connection = DBConnection.connect();
                         Statement stmt = connection.createStatement();
                         stmt.execute(deleteQuery);
@@ -390,12 +386,12 @@ public class AdminMenu {
                     showAdminMenu();
                 }
             }
-        }
-        if(!found){
+       // }
+/*        if(!found){
             System.out.println("We did not find who you were looking for.");
             // Return to Admin main menu
             showAdminMenu();
-        }
+        }*/
         else {
             System.out.println("Command Not recognized");
             // Return to Admin main menu
