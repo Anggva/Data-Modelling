@@ -65,8 +65,7 @@ public class RootMenu {
                         break;
 
                     case 4:
-                        AdminMenu adminMenu = new AdminMenu();
-                        adminMenu.showAdminMenu();
+                        AdminMenu.showAdminMenu();
                         break;
 
                     case 5:

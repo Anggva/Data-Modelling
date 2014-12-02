@@ -1,5 +1,6 @@
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.util.Scanner;
 
 /**
  * Created by Frank on 11/28/2014.
@@ -14,9 +15,13 @@ public class TimeListing extends Relationship {
         try {
             connection = DBConnection.connect();
 
-            // query for getting the student and course information as it relates to days the student is
+            Scanner scanTime = new Scanner(System.in);
+            System.out.println("Please enter the time for which the student is attending courses: ");
+            String selectedTime = scanTime.nextLine().trim();
+
+            // query for getting the student and course information as it relates to times the student is
             // taking classes.
-            String query = "SELECT * FROM Section";
+            String query = "SELECT * FROM Sections WHERE Time = " + selectedTime;
 
             ResultSet resultSet = connection.createStatement().executeQuery(query);
 

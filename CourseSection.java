@@ -47,7 +47,7 @@ public class CourseSection extends Relationship {
         try {
             Connection connection = DBConnection.connect();
 
-            String query = "SELECT * FROM Section";
+            String query = "SELECT * FROM Sections";
 
             ResultSet resultSet = connection.createStatement().executeQuery(query);
 
