@@ -59,7 +59,7 @@ public class Login {
         Connection connection = DBConnection.connect();
 
         char usertype = getUsertype();
-        String dbpasswd = "default";
+        String dbpasswd = null;
 
 
         if (usertype == 'F') {
@@ -68,7 +68,7 @@ public class Login {
 
             ResultSet resultSet = connection.createStatement().executeQuery(query);
 
-            while (resultSet.next()) password = resultSet.getString(1);
+            while (resultSet.next()) dbpasswd = resultSet.getString(1);
 
             if (password.equals(dbpasswd)) {
                 return true;
@@ -83,7 +83,7 @@ public class Login {
 
             ResultSet resultSet = connection.createStatement().executeQuery(query);
 
-            while (resultSet.next()) resultSet.getString(1);
+            while (resultSet.next()) dbpasswd = resultSet.getString(1);
 
             // if the password matches the password in the database column, we are authenticated.
             if (password.equals(dbpasswd)) {
@@ -106,10 +106,10 @@ public class Login {
         System.out.println("Username: ");
         Scanner scanCredentials = new Scanner(System.in);
 
-        username = scanCredentials.nextLine();
+        username = scanCredentials.nextLine().trim();
 
         System.out.println("Password: ");
-        password = scanCredentials.nextLine();
+        password = scanCredentials.nextLine().trim();
 
 
     }
