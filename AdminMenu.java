@@ -1,10 +1,11 @@
 /**
- * Created by Brittany Dinneen on 11/24/2014.
- * This is currently a work in progress so code is NOT complete!
+ * Created by: Brittany Dinneen
+ * Group Name: LostInERwin
+ * Due 12/03/2014
  *
  * TODO:
- * 1. Link to working menu
- * 2. Once Queries are finished add in where necessary
+ * 1. ChangePriv()
+ * 2. Ensure only admin get into this menu
  */
 
 import java.sql.*;
@@ -12,32 +13,14 @@ import java.util.*;
 
 public class AdminMenu {
 
-    /* main (...) here will not be necessary when the project is finalized,
-    * so I left it alone.
-    *
-    * I copied the code that was here and put it in the DBConnection class
-    * since I had that in my branch.
-    * */
-
-
-/*    public static void main(String[] args) {
-
-        //this will connect code to Olympia that we need to add to a main
-
-
-            showAdminMenu();//needs to be called from the ROOT MENU, just here so my code will run
-
-        }*/
-
-
     /*This will be the main Administrator Menu
-* As long as the user logged in has an F# and is and Administrator
-* they will have privileges to view this menu.
-* Options:
-*   1) create/add a new user to the DB
-*   2) delete a current user
-*   3) change the privileges of a faculty member to and from Administrator
-*   4) return to the main menu*/
+    * As long as the user logged in has an F# and is and Administrator
+    * they will have privileges to view this menu.
+    * Options:
+    *   1) create/add a new user to the DB
+    *   2) delete a current user
+    *   3) change the privileges of a faculty member to and from Administrator
+    *   4) return to the main menu*/
     public static void showAdminMenu() {
         System.out.println();
         System.out.println("\tAdministrator Menu");
@@ -63,16 +46,14 @@ public class AdminMenu {
                 break;
             case 4:
                 char usertype = 'F';
+                //return to root menu with usertype 'F' for Faculty
                 RootMenu root = new RootMenu(usertype);
                 root.showMainMenu();
-               // System.out.println("Going up to main menu.\n");
                 return;
             default:
                 System.out.println("error: a menu selection specified is out of bounds. Select 1-4.");
         }
     }
-
-
 
     /*AddUser() will walk Administrators through adding a new
     * Student/Faculty member to the DB
@@ -123,10 +104,6 @@ public class AdminMenu {
             sem = scan.nextLine();
             newUserInfo.add(sem);
 
-/*            System.out.print("Courses Needed: ");
-            crsneed = scan.nextLine();
-            newUserInfo.add(crsneed);*/
-
             System.out.print("Preferred Course Days (MTWRF): ");
             days = scan.nextLine();
             newUserInfo.add(days);
@@ -167,7 +144,7 @@ public class AdminMenu {
                     Statement stmt = connection.createStatement();
                     stmt.executeUpdate(insertQuery);
                 }
-                catch(Exception e){System.err.println(e.getMessage());}
+                catch(SQLException e){e.printStackTrace();}
 
                 //success
                 System.out.println("Student successfully added!");
@@ -259,7 +236,7 @@ public class AdminMenu {
                     Statement stmt = connection.createStatement();
                     stmt.executeUpdate(insertQuery);
                 }
-                catch(Exception e){System.err.println(e.getMessage());}
+                catch(SQLException e){e.printStackTrace();}
 
                 showAdminMenu();
             }
@@ -299,112 +276,67 @@ public class AdminMenu {
         Scanner scan = new Scanner(System.in);
         userInQuestion = scan.nextLine();
 
-//        String searchQuery = "SELECT FROM FacultyMembers WHERE FacultyNumber="+userInQuestion+";";
+        first = userInQuestion.charAt(0);
 
+        if (first == 'F') {
+            System.out.println("Are you sure you wish to delete Faculty member " + userInQuestion+"? Y or N");
+            Scanner newScan = new Scanner(System.in);
+            choice = scan.nextLine();
 
-      /*  try {
-            connection = DBConnection.connect();
-            Statement stmt = connection.createStatement();
-            found = stmt.execute(searchQuery);
-        }
-        catch(Exception e){System.err.println(e.getMessage());}
-        if(found) {*/
+            if (choice.equals("Y")) {
+                String deleteQuery = "DELETE FROM FacultyMembers WHERE FacultyNumber='"+ userInQuestion+"'";
+                System.out.println("query "+deleteQuery);
 
-            first = userInQuestion.charAt(0);
-
-            if (first == 'F') {
-                System.out.println("Number entered: "+userInQuestion);
-                //Found: List all info pertaining to that user
-/*                String userInfo = "SELECT FROM FacultyMembers WHERE FacultyNu='"+userInQuestion+"';";
                 try {
+                    Connection connection;
+                    System.out.println("got into try");
                     connection = DBConnection.connect();
-                   // Statement stmt = connection.createStatement();
-                   // ResultSet printUserInfo = stmt.executeQuery(userInfo);
-                    ResultSet printUserInfo = connection.createStatement().executeQuery(userInfo);
-                    //Call to DELETE QUERY
-                    System.out.println(printUserInfo.toString());
+                    Statement stmt = connection.createStatement();
+                    stmt.execute(deleteQuery);//Call to DELETE QUERY
+                } catch(SQLException e){e.printStackTrace();}
 
-                } catch (Exception e) {
-                    System.err.println(e.getMessage());
-                }*/
-
-                System.out.println("Are you sure you wish to delete Faculty listed above? Y or N");
-                Scanner newScan = new Scanner(System.in);
-                choice = scan.nextLine();
-
-                if (choice.equals("Y")) {
-                    String deleteQuery = "DELETE FROM FacultyMembers WHERE FacultyNumber='"+ userInQuestion+"'";
-                    System.out.println("query "+deleteQuery);
-
-                    try {
-                        Connection connection;
-                        System.out.println("got into try");
-                        connection = DBConnection.connect();
-                        Statement stmt = connection.createStatement();
-                        stmt.execute(deleteQuery);//Call to DELETE QUERY
-                    } catch (Exception e) {
-                        System.err.println(e.getMessage());
-                    }
-
-
-                    //success and return to admin main menu
-                    showAdminMenu();
-                } else if (choice.equals("N")) {
-                    System.out.println("You chose no");
-                    // Return to Admin main menu
-                    showAdminMenu();
-                } else {
-                    System.out.println("Command Not recognized");
-                    // Return to Admin main menu
-                    showAdminMenu();
-                }
-
+                //success and return to admin main menu
+                showAdminMenu();
+            } else if (choice.equals("N")) {
+                System.out.println("Faculty was not be deleted");
+                // Return to Admin main menu
+                showAdminMenu();
+            } else {
+                System.out.println("Command Not recognized");
+                // Return to Admin main menu
+                showAdminMenu();
             }
-            if (first == 'S') {
-                //   SELECT from Student WHERE StudentNumber = userInQuestion;
-                //Found: List all info pertaining to that user
-                System.out.println("Number entered: "+userInQuestion);
 
-                System.out.println("Are you sure you wish to delete Student listed above? Y or N");
-                Scanner newScan = new Scanner(System.in);
-                choice = scan.nextLine();
+        }
+        if (first == 'S') {
+            System.out.println("Number entered: "+userInQuestion);
 
-                if (choice.equals("Y")) {
-                    String deleteQuery = "DELETE FROM Students WHERE StudentNumber='" + userInQuestion + "'";
+            System.out.println("Are you sure you wish to delete Student listed above? Y or N");
+            Scanner newScan = new Scanner(System.in);
+            choice = scan.nextLine();
 
-                    try {
-/*                        connection = DBConnection.connect();
-                        Statement stmt = connection.createStatement();
-                        ResultSet rst = stmt.executeQuery(deleteQuery);
-                        ResultSetMetaData rsmd = rst.getMetaData();
-                        int numColumns = rsmd.getColumnCount();*/
-                        Connection connection;
+            if (choice.equals("Y")) {
+                String deleteQuery = "DELETE FROM Students WHERE StudentNumber='" + userInQuestion + "'";
 
-                        connection = DBConnection.connect();
-                        Statement stmt = connection.createStatement();
-                        stmt.execute(deleteQuery);
-                    } catch (Exception e) {
-                        System.err.println(e.getMessage());
-                    }
+                try {
+                    Connection connection;
+                    connection = DBConnection.connect();
+                    Statement stmt = connection.createStatement();
+                    stmt.execute(deleteQuery);
+                } catch(SQLException e){e.printStackTrace();}
 
-                    //success and return to admin main menu
-                    showAdminMenu();
-                } else if (choice.equals("N")) {
-                    System.out.println("Student will not be deleted");
-                    // Return to Admin main menu
-                    showAdminMenu();
-                } else {
-                    System.out.println("Command Not recognized");
-                    // Return to Admin main menu
-                    showAdminMenu();
-                }
+                //success and return to admin main menu
+                showAdminMenu();
+            } else if (choice.equals("N")) {
+                System.out.println("Student was not be deleted");
+                // Return to Admin main menu
+                showAdminMenu();
+            } else {
+                System.out.println("Command Not recognized");
+                // Return to Admin main menu
+                showAdminMenu();
             }
-       // }
-/*        if(!found){
-            System.out.println("We did not find who you were looking for.");
-            // Return to Admin main menu
-            showAdminMenu();
-        }*/
+        }
         else {
             System.out.println("Command Not recognized");
             // Return to Admin main menu
@@ -421,78 +353,48 @@ public class AdminMenu {
         System.out.println("------CHANGE USER PRIVILEGES------");
         String facultyInQuestion;
         Connection connection;
-        boolean found = true;
+        Login britsLogin = new Login();
+        boolean isAdmin = false;
+        String option;
 
         System.out.println("Please enter the Faculty User Number: ");
         Scanner scan = new Scanner(System.in);
         facultyInQuestion = scan.nextLine();
 
-        String searchQuery = "SELECT FROM FacultyMembers WHERE FacultyNumber="+facultyInQuestion+";";
-
         try {
-            connection = DBConnection.connect();
-            Statement stmt = connection.createStatement();
-            found = stmt.execute(searchQuery);
-        }
-        catch(Exception e){System.err.println(e.getMessage());}
+            isAdmin = britsLogin.isAdministrator(facultyInQuestion);
+        }catch(SQLException e){e.printStackTrace();}
+        System.out.println("Are you sure you wish to change user privileges for " +facultyInQuestion+"? Y or N");
+        Scanner newScan = new Scanner(System.in);
+        option = newScan.nextLine();
 
+        if(option.equals("Y")) {
 
-        if(found){
-            //NEED AN ADMIN CHECK
-            //TODO:
-            //Found: List all info pertaining to that user
-            System.out.println("User Information: ");
-
-            System.out.println("Are you sure you wish to change user privileges? Y or N");
-            Scanner newScan = new Scanner(System.in);
-            facultyInQuestion = scan.nextLine();
-
-            if(facultyInQuestion.equals("Y")){
-
-                //check is faculty is admin or not
-                String isAdmin = "Y";
-
-                if(isAdmin.equals("Y")){
-                    String no = "N";
-                    String updateQuery = "UPDATE FacultyMembers SET isAdministrator="+no+" WHERE FacultyNumber="+facultyInQuestion+";";
-                    try {
-                        connection = DBConnection.connect();
-                        Statement stmt = connection.createStatement();
-                        found = stmt.execute(updateQuery);
-                    }
-                    catch(Exception e){System.err.println(e.getMessage());}
-
-
+            if (isAdmin) {
+                String no = "N";
+                String updateQuery = "UPDATE FacultyMembers SET isAdministrator='"+no+"' WHERE FacultyNumber='"+facultyInQuestion+"'";
+                try {
+                    connection = DBConnection.connect();
+                    Statement stmt = connection.createStatement();
+                    stmt.execute(updateQuery);
+                } catch (Exception e) {
+                    System.err.println(e.getMessage());
                 }
-                if(isAdmin.equals("N")){
-                    String yes = "Y";
-                    String updateQuery = "UPDATE FacultyMembers SET isAdministrator="+yes+" WHERE FacultyNumber="+facultyInQuestion+";";
-                    try {
-                        connection = DBConnection.connect();
-                        Statement stmt = connection.createStatement();
-                        found = stmt.execute(updateQuery);
-                    }
-                    catch(Exception e){System.err.println(e.getMessage());}
+            }
+            if (!isAdmin) {
+                String yes = "Y";
+                String updateQuery = "UPDATE FacultyMembers SET isAdministrator='" + yes + "' WHERE FacultyNumber='"+facultyInQuestion+"'";
+                try {
+                    connection = DBConnection.connect();
+                    Statement stmt = connection.createStatement();
+                    stmt.execute(updateQuery);
+                } catch (Exception e) {
+                    System.err.println(e.getMessage());
                 }
-
-                //success and return to admin main menu
-                System.out.println("User successfully updated!");
-                showAdminMenu();
-            }
-            else if (facultyInQuestion.equals("N")){
-                // Return to Admin main menu
-                System.out.println("User NOT updated.");
-                showAdminMenu();
-            }
-            else {
-                System.out.println("Command Not Recognized");
-                // Return to Admin main menu
-                showAdminMenu();
             }
         }
-
-        if(!found) {
-            System.out.println("We did not find who you were looking for.");
+        if(option.equals("N")){
+            System.out.println("Faculty was not updated");
             // Return to Admin main menu
             showAdminMenu();
         }
