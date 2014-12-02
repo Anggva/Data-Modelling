@@ -42,13 +42,15 @@ public class Login {
         return password;
     }
 
-    private void checkUser(String number) throws SQLException {
+    private boolean checkUser(String number) throws SQLException {
 
 
         new DBConnection();
         Connection connection = DBConnection.connect();
 
         char usertype = getUsertype();
+        String dbpasswd = "default";
+
 
         if (usertype == 'F') {
 
@@ -56,7 +58,11 @@ public class Login {
 
             ResultSet resultSet = connection.createStatement().executeQuery(query);
 
-            while (resultSet.next()) resultSet.getString(1);
+            while (resultSet.next()) password = resultSet.getString(1);
+
+            if (password.equals(dbpasswd)) {
+                return true;
+            }
 
             resultSet.close();
             connection.close();
@@ -69,9 +75,18 @@ public class Login {
 
             while (resultSet.next()) resultSet.getString(1);
 
+            // if the password matches the password in the database column, we are authenticated.
+            if (password.equals(dbpasswd)) {
+                return true;
+            }
             resultSet.close();
             connection.close();
         }
+
+        // no password, so no authentication.
+        // the user of Login class should treat value of false here as a failure and
+        // reject the user.
+        return false;
 
     }
 
