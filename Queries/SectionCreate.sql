@@ -19,19 +19,33 @@ FOREIGN KEY(CourseNumber)
 REFERENCES Courses(CourseNumber)
 ON DELETE CASCADE;
 
-CREATE TABLE StSection(
+CREATE TABLE StudentsSections(
 	Section INTEGER,
-	StudentEnrolled CHAR(9)
+	StudentEnrolled CHAR(9),
+	Course CHAR(10),
+	Faculty CHAR(9)
 );
 
-ALTER TABLE StSection
+ALTER TABLE StudentsSections
 ADD CONSTRAINT fk_Student
 FOREIGN KEY(StudentEnrolled)
 REFERENCES Students(StudentNumber)
 ON DELETE CASCADE;
 
-ALTER TABLE StSection
+ALTER TABLE StudentsSections
 ADD CONSTRAINT fk_Section
 FOREIGN KEY(Section)
 REFERENCES Sections(SectionNumber)
+ON DELETE CASCADE;
+
+ALTER TABLE StudentsSections
+ADD CONSTRAINT fk_SCourse
+FOREIGN KEY(Course)
+REFERENCES Courses(CourseNumber)
+ON DELETE CASCADE;
+
+ALTER TABLE StudentsSections
+ADD CONSTRAINT fk_SFaculty
+FOREIGN KEY(Faculty)
+REFERENCES FacultyMembers(FacultyNumber)
 ON DELETE CASCADE;

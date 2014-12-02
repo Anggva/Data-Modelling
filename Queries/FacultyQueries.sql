@@ -9,7 +9,7 @@ FROM Students;
 
 --See courses requested by a particular student
 SELECT StudentNumber, CoursesNeeded
-FROM StCourses
+FROM CourseStudents
 WHERE StudentNumber=ourStudentVar;
 
 --See a current course preference form for a particular faculty member

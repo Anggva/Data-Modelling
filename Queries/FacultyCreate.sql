@@ -4,7 +4,7 @@ CREATE TABLE FacultyMembers(
 	FirstName CHAR(15),
 	LastName CHAR(15),
 	Position CHAR(20),
-	AreaOfExpertise CHAR(20),
+	AreaOfExpertise CHAR(50),
 	PreferredCourseDays CHAR(5),
 	PreferredCourseTimes CHAR(25),
 	Gender CHAR(1),
