@@ -15,11 +15,20 @@ public class Login {
 
     private String username;
     private String password;
+    private boolean authenticated;
 
     private char getUsertype() {
 
 
         return username.charAt(0);
+    }
+
+    public void logout() {
+
+        username = null;
+        password = null;
+        authenticated = false;
+        System.out.println("You are now logged out.");
     }
 
     public boolean isAdministrator(String FacultyNumber) throws SQLException {
@@ -76,6 +85,8 @@ public class Login {
             while (resultSet.next()) dbpasswd = resultSet.getString(1);
 
             if (password.equals(dbpasswd)) {
+                System.out.println("You are logged in with role, 'faculty'");
+                authenticated = true;
                 return true;
             }
 
@@ -92,6 +103,8 @@ public class Login {
 
             // if the password matches the password in the database column, we are authenticated.
             if (password.equals(dbpasswd)) {
+                System.out.println("You are logged in with role, 'student'");
+                authenticated = true;
                 return true;
             }
             resultSet.close();
@@ -105,6 +118,13 @@ public class Login {
 
     }
 
+
+    public boolean isAuthenticated() {
+
+        return authenticated;
+
+    }
+
     public void showLogin() {
 
 
@@ -115,7 +135,7 @@ public class Login {
 
         System.out.print("\nPassword: ");
         password = scanCredentials.nextLine().trim();
-
-
     }
+
+
 }
