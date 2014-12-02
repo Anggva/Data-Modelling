@@ -11,6 +11,63 @@ import java.util.Map;
  */
 public abstract class Relationship {
 
+    private int courseNumber;
+    private String days;
+    private String time;
+    private String students;
+    private String instructor;
+
+    public String getDays() {
+
+        return days;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public String getStudents() {
+
+        return students;
+    }
+
+    public String getInstructor() {
+
+        return instructor;
+    }
+
+    public int getCourseNumber() {
+
+        return courseNumber;
+    }
+
+    public void setCourseNumber(int fcourseNum) {
+
+        courseNumber = fcourseNum;
+    }
+
+    public void setDays(String fdays) {
+
+        days = fdays;
+    }
+
+    public void setTime(String ftime) {
+
+        time = ftime;
+    }
+
+    public void setStudents(String fstudents) {
+
+        students = fstudents;
+    }
+
+    public void setInstructor(String finstructor) {
+
+        instructor = finstructor;
+
+    }
+
+
     private Map<String, Integer> er = new HashMap<String, Integer>();
 
     public abstract void getDBData();
