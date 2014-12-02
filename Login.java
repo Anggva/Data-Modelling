@@ -29,6 +29,8 @@ public class Login {
 
         while (resultSet.next()) chadmin = resultSet.getString(1).charAt(0);
 
+
+
         // if our check-admin variable contains a Y, we have a user in the database who is an
         // administrator, return true for this user.
         if (chadmin == 'Y')
