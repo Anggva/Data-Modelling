@@ -57,7 +57,7 @@ public class Login {
         return password;
     }
 
-    private boolean checkUser(String number) throws SQLException {
+    public boolean checkUser(String number) throws SQLException {
 
 
         new DBConnection();
