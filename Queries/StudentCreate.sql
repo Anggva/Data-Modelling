@@ -8,18 +8,18 @@ CREATE TABLE Students(StudentNumber CHAR(9) PRIMARY KEY,
 	PhoneNumber CHAR(10)
 	);
 
-CREATE TABLE StCourses (
+CREATE TABLE CourseStudents (
 	StudentNumber CHAR(9),
 	CoursesNeeded CHAR(10)
 );
 
-ALTER TABLE StCourses
+ALTER TABLE CourseStudents
 ADD CONSTRAINT fk_Courses
 FOREIGN KEY(CoursesNeeded)
 REFERENCES Courses(CourseNumber)
 ON DELETE CASCADE;
 
-ALTER TABLE StCourses
+ALTER TABLE CourseStudents
 ADD CONSTRAINT fk_Students
 FOREIGN KEY(StudentNumber)
 REFERENCES Students(StudentNumber)

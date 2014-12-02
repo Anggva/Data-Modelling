@@ -7,7 +7,7 @@ VALUES(newSNumber, newFirstName, newLastName, newSemester, newDays, newTime, new
 
 --see courses requested by a student
 SELECT StudentNumber, CoursesNeeded
-FROM StCourses
+FROM CourseStudents
 WHERE StudentNumber=ourStudentVar;
 
 --see prefered days and times by a student
@@ -17,5 +17,5 @@ WHERE StudentNumber=ourStudentVar;
 
 --see term schedule by a student
 SELECT SectionNumber, CourseNumber, DaysOfTheWeek, StudentEnrolled
-FROM Sections, StSection
-WHERE StudentEnrolled=ourStudentVar AND SectionNumber=StSection.Section;
+FROM Sections, StudentsSections
+WHERE StudentEnrolled=ourStudentVar AND SectionNumber=StudentsSections.Section;
