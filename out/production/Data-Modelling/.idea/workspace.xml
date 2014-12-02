@@ -4,7 +4,7 @@
     <list default="true" id="4bd607f3-e5a2-455f-a9a2-9370331c266a" name="Default" comment="">
       <change type="DELETED" beforePath="C:\Users\User Name\Documents\DATA MODELING\Data-Modelling\out\production\Data-Modelling\random text.txt" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AdminMenu.java" afterPath="$PROJECT_DIR$/AdminMenu.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Login.java" afterPath="$PROJECT_DIR$/Login.java" />
     </list>
     <ignored path="Data-Modelling.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,14 +32,13 @@
       <file leaf-file-name="AdminMenu.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AdminMenu.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="791" max-vertical-offset="1683">
-              <caret line="40" column="36" selection-start-line="40" selection-start-column="23" selection-end-line="40" selection-end-column="36" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="5292" max-vertical-offset="6477">
+              <caret line="382" column="13" selection-start-line="382" selection-start-column="13" selection-end-line="382" selection-end-column="13" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="imports" expanded="true" />
-                <element signature="method#AddUser#0;class#AdminMenu#0" expanded="false" />
-                <element signature="method#DltUser#0;class#AdminMenu#0" expanded="false" />
-                <element signature="method#ChangePriv#0;class#AdminMenu#0" expanded="false" />
+                <element signature="method#showAdminMenu#0;class#AdminMenu#0" expanded="false" />
+                <element signature="e#2205#2213#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -48,8 +47,8 @@
       <file leaf-file-name="Driver.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Driver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.32399103" vertical-offset="0" max-vertical-offset="892">
-              <caret line="17" column="28" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
+            <state vertical-scroll-proportion="0.38901603" vertical-offset="0" max-vertical-offset="874">
+              <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -59,7 +58,7 @@
         <entry file="file://$PROJECT_DIR$/Login.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="383" max-vertical-offset="1377">
-              <caret line="42" column="22" selection-start-line="42" selection-start-column="22" selection-end-line="42" selection-end-column="22" />
+              <caret line="54" column="22" selection-start-line="54" selection-start-column="22" selection-end-line="54" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#getUsername#0;class#Login#0" expanded="false" />
@@ -75,7 +74,7 @@
       <file leaf-file-name="RootMenu.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/RootMenu.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="536" max-vertical-offset="3825">
+            <state vertical-scroll-proportion="0.0" vertical-offset="2168" max-vertical-offset="3825">
               <caret line="236" column="0" selection-start-line="236" selection-start-column="0" selection-end-line="236" selection-end-column="0" />
               <folding />
             </state>
@@ -108,17 +107,16 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/DBConnection.java" />
-        <option value="$PROJECT_DIR$/Login.java" />
         <option value="$PROJECT_DIR$/RootMenu.java" />
+        <option value="$PROJECT_DIR$/Login.java" />
         <option value="$PROJECT_DIR$/AdminMenu.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-9" />
-    <option name="y" value="-9" />
-    <option name="width" value="1938" />
-    <option name="height" value="1050" />
+    <option name="x" value="700" />
+    <option name="width" value="1220" />
+    <option name="height" value="1032" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -143,6 +141,8 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -185,8 +185,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -447,7 +445,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
+    <frame x="700" y="0" width="1220" height="1032" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -459,17 +457,17 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32972974" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.7027027" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15989584" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23377703" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14702703" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35675675" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -510,14 +508,67 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/AdminMenu.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="884">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="method#showAdminMenu#0;class#AdminMenu#0" expanded="false" />
+            <element signature="e#2205#2213#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Driver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="272" max-vertical-offset="442">
+          <caret line="16" column="45" selection-start-line="16" selection-start-column="37" selection-end-line="16" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Login.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="179" max-vertical-offset="1377">
+          <caret line="42" column="22" selection-start-line="42" selection-start-column="22" selection-end-line="42" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#getUsername#0;class#Login#0" expanded="false" />
+            <element signature="method#getPassword#0;class#Login#0" expanded="false" />
+            <element signature="method#checkUser#0;class#Login#0" expanded="false" />
+            <element signature="method#showLogin#0;class#Login#0" expanded="false" />
+            <element signature="method#isAuthenticated#0;class#Login#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RootMenu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="3604" max-vertical-offset="3825">
+          <caret line="236" column="0" selection-start-line="236" selection-start-column="0" selection-end-line="236" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DBConnection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="850">
+          <caret line="18" column="62" selection-start-line="18" selection-start-column="62" selection-end-line="18" selection-end-column="62" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AdminMenu.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="442" max-vertical-offset="1666">
           <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
-            <element signature="method#AddUser#0;class#AdminMenu#0" expanded="false" />
-            <element signature="method#DltUser#0;class#AdminMenu#0" expanded="false" />
-            <element signature="method#ChangePriv#0;class#AdminMenu#0" expanded="false" />
+            <element signature="method#showAdminMenu#0;class#AdminMenu#0" expanded="false" />
+            <element signature="e#2205#2213#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -554,9 +605,8 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
-            <element signature="method#AddUser#0;class#AdminMenu#0" expanded="false" />
-            <element signature="method#DltUser#0;class#AdminMenu#0" expanded="false" />
-            <element signature="method#ChangePriv#0;class#AdminMenu#0" expanded="false" />
+            <element signature="method#showAdminMenu#0;class#AdminMenu#0" expanded="false" />
+            <element signature="e#2205#2213#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -593,9 +643,8 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
-            <element signature="method#AddUser#0;class#AdminMenu#0" expanded="false" />
-            <element signature="method#DltUser#0;class#AdminMenu#0" expanded="false" />
-            <element signature="method#ChangePriv#0;class#AdminMenu#0" expanded="false" />
+            <element signature="method#showAdminMenu#0;class#AdminMenu#0" expanded="false" />
+            <element signature="e#2205#2213#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -632,9 +681,8 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
-            <element signature="method#AddUser#0;class#AdminMenu#0" expanded="false" />
-            <element signature="method#DltUser#0;class#AdminMenu#0" expanded="false" />
-            <element signature="method#ChangePriv#0;class#AdminMenu#0" expanded="false" />
+            <element signature="method#showAdminMenu#0;class#AdminMenu#0" expanded="false" />
+            <element signature="e#2205#2213#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -656,9 +704,8 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
-            <element signature="method#AddUser#0;class#AdminMenu#0" expanded="false" />
-            <element signature="method#DltUser#0;class#AdminMenu#0" expanded="false" />
-            <element signature="method#ChangePriv#0;class#AdminMenu#0" expanded="false" />
+            <element signature="method#showAdminMenu#0;class#AdminMenu#0" expanded="false" />
+            <element signature="e#2205#2213#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -680,9 +727,8 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
-            <element signature="method#AddUser#0;class#AdminMenu#0" expanded="false" />
-            <element signature="method#DltUser#0;class#AdminMenu#0" expanded="false" />
-            <element signature="method#ChangePriv#0;class#AdminMenu#0" expanded="false" />
+            <element signature="method#showAdminMenu#0;class#AdminMenu#0" expanded="false" />
+            <element signature="e#2205#2213#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -704,9 +750,8 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
-            <element signature="method#AddUser#0;class#AdminMenu#0" expanded="false" />
-            <element signature="method#DltUser#0;class#AdminMenu#0" expanded="false" />
-            <element signature="method#ChangePriv#0;class#AdminMenu#0" expanded="false" />
+            <element signature="method#showAdminMenu#0;class#AdminMenu#0" expanded="false" />
+            <element signature="e#2205#2213#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -728,9 +773,8 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
-            <element signature="method#AddUser#0;class#AdminMenu#0" expanded="false" />
-            <element signature="method#DltUser#0;class#AdminMenu#0" expanded="false" />
-            <element signature="method#ChangePriv#0;class#AdminMenu#0" expanded="false" />
+            <element signature="method#showAdminMenu#0;class#AdminMenu#0" expanded="false" />
+            <element signature="e#2205#2213#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -746,6 +790,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.24735449" vertical-offset="0" max-vertical-offset="756">
           <caret line="11" column="9" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RootMenu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2780" max-vertical-offset="3825">
+          <caret line="236" column="0" selection-start-line="236" selection-start-column="0" selection-end-line="236" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -760,32 +811,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/RootMenu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2780" max-vertical-offset="3825">
-          <caret line="236" column="0" selection-start-line="236" selection-start-column="0" selection-end-line="236" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AdminMenu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1683">
-          <caret line="40" column="36" selection-start-line="40" selection-start-column="23" selection-end-line="40" selection-end-column="36" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="imports" expanded="true" />
-            <element signature="method#AddUser#0;class#AdminMenu#0" expanded="false" />
-            <element signature="method#DltUser#0;class#AdminMenu#0" expanded="false" />
-            <element signature="method#ChangePriv#0;class#AdminMenu#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Login.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="383" max-vertical-offset="1377">
-          <caret line="42" column="22" selection-start-line="42" selection-start-column="22" selection-end-line="42" selection-end-column="22" />
+          <caret line="54" column="22" selection-start-line="54" selection-start-column="22" selection-end-line="54" selection-end-column="22" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#getUsername#0;class#Login#0" expanded="false" />
@@ -797,10 +826,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/AdminMenu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="5292" max-vertical-offset="6477">
+          <caret line="382" column="13" selection-start-line="382" selection-start-column="13" selection-end-line="382" selection-end-column="13" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="method#showAdminMenu#0;class#AdminMenu#0" expanded="false" />
+            <element signature="e#2205#2213#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Driver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.32399103" vertical-offset="0" max-vertical-offset="892">
-          <caret line="17" column="28" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
+        <state vertical-scroll-proportion="0.38901603" vertical-offset="0" max-vertical-offset="874">
+          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding />
         </state>
       </provider>

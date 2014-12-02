@@ -31,12 +31,12 @@ public class Login {
         System.out.println("You are now logged out.");
     }
 
-    public boolean isAdministrator(String FacultyNumber) throws SQLException {
+    public char isAdministrator(String FacultyNumber) throws SQLException {
 
         Connection connection = DBConnection.connect();
-        char chadmin = 'N';
+        char chadmin = '0';
 
-        String query = "SELECT isAdministrator FROM Faculty WHERE FacultyNumber = " + FacultyNumber;
+        String query = "SELECT isAdministrator FROM Faculty WHERE FacultyNumber='" + FacultyNumber+"'";
 
         ResultSet resultSet = connection.createStatement().executeQuery(query);
 
@@ -51,13 +51,13 @@ public class Login {
 
           it is better to have the isAdministrator column type BOOLEAN, but this will do..
          */
-        if (chadmin == 'Y')
-            return true;
+        if (chadmin == '1')
+            return '1';
 
         resultSet.close();
         connection.close();
 
-        return false;
+        return '0';
     }
 
     public String getUsername() {

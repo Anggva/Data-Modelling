@@ -138,8 +138,9 @@ public class AdminMenu {
                 String insertQuery = "INSERT INTO Students VALUES('" + newSNumber + "','" + newFirstName + "','" + newLastName + "','" + newSemester + "','" + newDays + "','" + newTime + "','" + newGender + "','" + newPhoneNumber + "')";
 
                 //add query
-                Connection connection;
+
                 try {
+                    Connection connection;
                     connection = DBConnection.connect();
                     Statement stmt = connection.createStatement();
                     stmt.executeUpdate(insertQuery);
@@ -183,7 +184,6 @@ public class AdminMenu {
             System.out.print("Area of Expertise: ");
             aoe = scan.nextLine();
             newUserInfo.add(aoe);
-
 
             System.out.print("Preferred Course Days (MTWRF):");
             days = scan.nextLine();
@@ -230,8 +230,8 @@ public class AdminMenu {
                 String insertQuery = "INSERT INTO FacultyMembers VALUES('"+newFacultyNumber+"','"+newFirstName+"','"+newLastName+"','"+newPosition+"','"+newAreaOfExpertise+"','"+newDays+"','"+newTimes+"','"+newGender+"','"+newPhone+"','"+newPriveleges+"','"+newPassword+"')";
 
                 //add query
-                Connection connection;
                 try {
+                    Connection connection;
                     connection = DBConnection.connect();
                     Statement stmt = connection.createStatement();
                     stmt.executeUpdate(insertQuery);
@@ -352,9 +352,9 @@ public class AdminMenu {
         /* This will change a faculties isAdmin privileges back and forth*/
         System.out.println("------CHANGE USER PRIVILEGES------");
         String facultyInQuestion;
-        Connection connection;
+
         Login britsLogin = new Login();
-        boolean isAdmin = false;
+        char isAdmin = '0';
         String option;
 
         System.out.println("Please enter the Faculty User Number: ");
@@ -364,16 +364,17 @@ public class AdminMenu {
         try {
             isAdmin = britsLogin.isAdministrator(facultyInQuestion);
         }catch(SQLException e){e.printStackTrace();}
+
         System.out.println("Are you sure you wish to change user privileges for " +facultyInQuestion+"? Y or N");
         Scanner newScan = new Scanner(System.in);
         option = newScan.nextLine();
 
         if(option.equals("Y")) {
-
-            if (isAdmin) {
-                String no = "N";
+            if (isAdmin == '1') {
+                String no = "0";
                 String updateQuery = "UPDATE FacultyMembers SET isAdministrator='"+no+"' WHERE FacultyNumber='"+facultyInQuestion+"'";
                 try {
+                    Connection connection;
                     connection = DBConnection.connect();
                     Statement stmt = connection.createStatement();
                     stmt.execute(updateQuery);
@@ -381,10 +382,11 @@ public class AdminMenu {
                     System.err.println(e.getMessage());
                 }
             }
-            if (!isAdmin) {
-                String yes = "Y";
+            if (isAdmin == '0') {
+                String yes = "1";
                 String updateQuery = "UPDATE FacultyMembers SET isAdministrator='" + yes + "' WHERE FacultyNumber='"+facultyInQuestion+"'";
                 try {
+                    Connection connection;
                     connection = DBConnection.connect();
                     Statement stmt = connection.createStatement();
                     stmt.execute(updateQuery);
@@ -398,10 +400,10 @@ public class AdminMenu {
             // Return to Admin main menu
             showAdminMenu();
         }
-        else{
+/*        else{
             System.out.println("Command Not Recognized");
             // Return to Admin main menu
             showAdminMenu();
-        }
+        }*/
     }
 }
