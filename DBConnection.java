@@ -6,19 +6,17 @@ import java.sql.SQLException;
  * Created by Frank on 11/27/2014.
  *
  * src: http://blog.ngopal.com.np/2011/06/19/piechart-data-from-database-in-javafx-2-0/
- *
+ * now with Brittany's DB information.
  */
 public class DBConnection {
 
-    private static Connection connection;
-    private static String url = "jdbc:oracle://olympia/";
-    final private static String user = "who";
-    final private static String passwd = "what";
+    final private static String user = "teamlostinerwin";
+    final private static String passwd = "team3bdpsvv";
 
     public static Connection connect() throws SQLException {
 
         try {
-            Class.forName("com.oracle.jdbc.Driver").newInstance();
+            Class.forName("oracle.jdbc.driver.OracleDriver").newInstance();
 
         } catch (ClassNotFoundException cnfe) {
             System.err.println("JDBC driver not found.");
@@ -28,15 +26,15 @@ public class DBConnection {
             System.err.println(iae.getMessage());
         }
 
-        connection = DriverManager.getConnection(url, user, passwd);
-        return connection;
+        String url = "jdbc:oracle:thin:@olympia.unfcsd.unf.edu:1521:dworcl";
+        return DriverManager.getConnection(url, user, passwd);
     }
 
-    public static Connection getConnection() throws SQLException {
+    /*public static Connection getConnection() throws SQLException {
 
         if(connection != null && !connection.isClosed())
             return connection;
         connect();
         return connection;
-    }
+    }*/
 }

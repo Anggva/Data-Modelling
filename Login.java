@@ -12,9 +12,10 @@ public class Login {
     private static String password;
     private static char usertype;
 
-    public static char getUsertype() {
+    public static Character getUsertype() {
 
-        return usertype;
+
+        return username.charAt(0);
     }
 
     public boolean isAdministrator(String FacultyNumber) throws SQLException {
@@ -53,10 +54,10 @@ public class Login {
 
             ResultSet resultSet = connection.createStatement().executeQuery(query);
 
-            while(resultSet.next()) {
-                resultSet.getString(1);
-                
-            }
+            while(resultSet.next()) resultSet.getString(1);
+
+            resultSet.close();
+            connection.close();
         }
 
     }
