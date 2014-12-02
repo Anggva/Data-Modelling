@@ -8,11 +8,10 @@ import java.util.*;
  */
 public class Login {
 
-    private static String username;
-    private static String password;
-    private static char usertype;
+    private String username;
+    private String password;
 
-    public static Character getUsertype() {
+    public Character getUsertype() {
 
 
         return username.charAt(0);
@@ -28,8 +27,6 @@ public class Login {
         ResultSet resultSet = connection.createStatement().executeQuery(query);
 
         while (resultSet.next()) chadmin = resultSet.getString(1).charAt(0);
-
-
 
         // if our check-admin variable contains a Y, we have a user in the database who is an
         // administrator, return true for this user.
