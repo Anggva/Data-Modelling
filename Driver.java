@@ -13,9 +13,18 @@ public class Driver {
 
         Login login = new Login();
         login.showLogin();
-        login.checkUser(login.getUsername());
 
-        RootMenu menu = new RootMenu();
-        menu.showMainMenu();
+        while (true) {
+            if (login.checkUser(login.getUsername())) {
+
+                RootMenu menu = new RootMenu();
+                menu.showMainMenu();
+            } else {
+                System.out.println("You did not provide proper login credentials. Try again.");
+
+            }
+
+            break;
+        }
     }
 }

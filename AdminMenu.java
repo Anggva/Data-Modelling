@@ -45,7 +45,6 @@ public class AdminMenu {
                 ChangePriv();
                 break;
             case 4:
-                char usertype = 'F';
                 // not anymore -- frank.
                 // return to root menu with usertype 'F' for Faculty
                 RootMenu root = new RootMenu();
