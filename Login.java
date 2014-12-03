@@ -36,7 +36,7 @@ public class Login {
         Connection connection = DBConnection.connect();
         char chadmin = '0';
 
-        String query = "SELECT isAdministrator FROM Faculty WHERE FacultyNumber='" + FacultyNumber+"'";
+        String query = "SELECT isAdministrator FROM FacultyMembers HERE FacultyNumber='" + FacultyNumber+"'";
 
         ResultSet resultSet = connection.createStatement().executeQuery(query);
 
