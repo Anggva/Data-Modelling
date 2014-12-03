@@ -11,15 +11,23 @@ import java.util.Map;
  */
 public abstract class Relationship {
 
-    private int courseNumber;
+    private String courseNumber;
+    private int sectionNumber;
     private String days;
     private String time;
     private String students;
     private String instructor;
 
+
+
+
+    public int getSectionNumber() {
+
+        return this.sectionNumber;
+    }
     public String getDays() {
 
-        return days;
+        return this.days;
     }
 
     public String getTime() {
@@ -28,42 +36,47 @@ public abstract class Relationship {
 
     public String getStudents() {
 
-        return students;
+        return this.students;
     }
 
     public String getInstructor() {
 
-        return instructor;
+        return this.instructor;
     }
 
-    public int getCourseNumber() {
+    public String getCourseNumber() {
 
-        return courseNumber;
+        return this.courseNumber;
     }
 
-    public void setCourseNumber(int fcourseNum) {
+    public void setCourseNumber(String fcourseNum) {
 
-        courseNumber = fcourseNum;
+        this.courseNumber = fcourseNum;
+    }
+
+    public void setSectionNumber(int fSectionNumber) {
+
+        this.sectionNumber = fSectionNumber;
     }
 
     public void setDays(String fdays) {
 
-        days = fdays;
+        this.days = fdays;
     }
 
     public void setTime(String ftime) {
 
-        time = ftime;
+        this.time = ftime;
     }
 
     public void setStudents(String fstudents) {
 
-        students = fstudents;
+        this.students = fstudents;
     }
 
     public void setInstructor(String finstructor) {
 
-        instructor = finstructor;
+        this.instructor = finstructor;
 
     }
 

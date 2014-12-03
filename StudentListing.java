@@ -6,6 +6,15 @@ import java.sql.ResultSet;
  */
 public class StudentListing extends Relationship {
 
+    public String getFormData() {
+
+        return "Student Listing\n" +
+                "===================================================================\n" +
+                "Course Number\t" + "Days\t" + "Time\t" + "Student\t" + "Instructor\n" +
+                getCourseNumber() + "\t" + getDays() + "\t" + getTime() + "\t" + getStudents() + "\t" + getInstructor();
+
+    }
+
     public void getDBData() {
 
         Connection connection;
@@ -21,7 +30,7 @@ public class StudentListing extends Relationship {
             ResultSet resultSet = connection.createStatement().executeQuery(query);
 
             while (resultSet.next()) {
-                setCourseNumber(resultSet.getInt(1));
+                setCourseNumber(resultSet.getString(1));
                 setDays(resultSet.getString(2));
                 setTime(resultSet.getString(3));
                 setStudents(resultSet.getString(4));
