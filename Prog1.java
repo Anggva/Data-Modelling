@@ -57,7 +57,7 @@ public class Prog1{
                break;
             case 4:
                //AdmnMn();
-               AM.menu();
+               AdminMenu.showAdminMenu();
                System.out.println("Press Enter");
                line = br.readLine();
                break;
