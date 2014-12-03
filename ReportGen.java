@@ -23,15 +23,22 @@ public class ReportGen {
 
             switch (choice) {
                     case 1: System.out.println(getCourseListing());
+                        break;
                     case 2: System.out.println(getDayListing());
+                        break;
                     case 3: System.out.println(getTimeListing());
+                        break;
                     case 4: System.out.println(getStudentListing());
+                        break;
                     case 5: System.out.println(getFacultyListing());
+                        break;
                     default: System.out.println("getReport() provided with" +
                             " an invalid or out-of-bounds menu option.");
-                            return "";
+
 
             }
+
+        return "";
 
     }
     /* retrieve course listing from some DB.
