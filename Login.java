@@ -62,7 +62,7 @@ public class Login {
 
     public String getUsername() {
 
-        return username;
+        return this.username;
     }
 
 
@@ -133,10 +133,10 @@ public class Login {
         System.out.println("Username: ");
         Scanner scanCredentials = new Scanner(System.in);
 
-        username = scanCredentials.nextLine();
+        this.username = scanCredentials.nextLine();
 
         System.out.println("Password: ");
-        password = scanCredentials.nextLine();
+        this.password = scanCredentials.nextLine();
 
     }
 

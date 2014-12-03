@@ -20,6 +20,7 @@
     Is StudentsEnrolled a column that keeps student names, and we can just
     COUNT() them to get the section occupancy? Something to think about)
  */
+import java.sql.SQLException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -65,8 +66,25 @@ public class RootMenu {
                         break;
 
                     case 4:
-                        AdminMenu adminMenu = new AdminMenu();
-                        adminMenu.showAdminMenu();
+                        char checkIsAdmin;
+                        Login blogin = new Login();
+                        //System.out.println("blogin "+blogin);
+                        String userNumber = blogin.getUsername();
+                        System.out.println("userNumber "+userNumber);
+                        try {
+                            checkIsAdmin = blogin.isAdministrator(userNumber);
+
+                            if(checkIsAdmin == '1') {
+                                AdminMenu adminMenu = new AdminMenu();
+                                adminMenu.showAdminMenu();
+                            }
+
+                            if(checkIsAdmin == '0'){
+                                break;
+                            }
+                        }catch(SQLException e){e.printStackTrace();}
+
+
                         break;
 
                     case 5:
