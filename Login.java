@@ -84,7 +84,7 @@ public class Login {
 
         if (usertype == 'F') {
 
-            String query = "SELECT Password FROM Faculty WHERE FacultyNumber = " + number;
+            String query = "SELECT Password FROM FacultyMembers WHERE FacultyNumber = " + number;
 
             ResultSet resultSet = connection.createStatement().executeQuery(query);
 
@@ -103,7 +103,7 @@ public class Login {
 
         } else if (usertype == 'S') {
 
-            String query = "SELECT Password FROM Student WHERE StudentNumber = " + number;
+            String query = "SELECT Password FROM Students WHERE StudentNumber = " + number;
 
             ResultSet resultSet = connection.createStatement().executeQuery(query);
 
