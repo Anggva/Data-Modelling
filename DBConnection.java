@@ -17,7 +17,7 @@ public class DBConnection {
         try {
             connection = DriverManager.getConnection("jdbc:oracle:thin:@olympia.unfcsd.unf.edu:1521:dworcl", "teamlostinerwin", "team3bdpsvv");
         } catch (SQLException e) {
-            System.out.println("Connection to Olympia Failed!");
+            System.out.println("Connection to Olympia Failed!" + e.getMessage());
             return null;
         }
         if (connection == null) {
