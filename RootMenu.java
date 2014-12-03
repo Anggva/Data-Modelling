@@ -66,7 +66,7 @@ public class RootMenu {
                         break;
 
                     case 4:
-                        char checkIsAdmin;
+                  /*      char checkIsAdmin;
                         Login blogin = new Login();
                         //System.out.println("blogin "+blogin);
                         String userNumber = blogin.getUsername();
@@ -74,16 +74,16 @@ public class RootMenu {
                         try {
                             checkIsAdmin = blogin.isAdministrator(userNumber);
 
-                            if(checkIsAdmin == '1') {
+                            if(checkIsAdmin == '1') {*/
                                 AdminMenu adminMenu = new AdminMenu();
                                 adminMenu.showAdminMenu();
-                            }
+                      /*      }
 
                             if(checkIsAdmin == '0'){
                                 break;
                             }
                         }catch(SQLException e){e.printStackTrace();}
-
+*/
 
                         break;
 
@@ -200,7 +200,7 @@ public class RootMenu {
             // instantiate the ReportGen class and prepare its methods for
             // usage.
 
-            ReportGen reportGen = new ReportGen(usertype);
+            ReportGen reportGen = new ReportGen();
 
 
 

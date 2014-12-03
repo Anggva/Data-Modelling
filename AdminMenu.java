@@ -363,7 +363,6 @@ public class AdminMenu {
 
         try {
             isAdmin = britsLogin.isAdministrator(facultyInQuestion);
-            System.out.println("user is a "+isAdmin);
         }catch(SQLException e){e.printStackTrace();}
 
         System.out.println("Are you sure you wish to change user privileges for " +facultyInQuestion+"? Y or N");

@@ -36,14 +36,14 @@ public class Login {
         Connection connection = DBConnection.connect();
         char chadmin = '0';
 
-        String query = "SELECT isAdministrator FROM Faculty WHERE FacultyNumber='" + FacultyNumber+"'";
+        String query = "SELECT isAdministrator FROM FacultyMembers WHERE FacultyNumber='" + FacultyNumber+"'";
 
         ResultSet resultSet = connection.createStatement().executeQuery(query);
 
         while (resultSet.next()) chadmin = resultSet.getString(1).charAt(0);
 
-
-        // if our check-admin variable contains a Y, we have a user in the database who is an
+        //System.out.println("chadmin= "+chadmin);
+        // if our check-admin variable contains a 1, we have a user in the database who is an
         // administrator, return true for this user.
 
         /* if our check-admin variable contains a Y, we have a user in the database who is an
