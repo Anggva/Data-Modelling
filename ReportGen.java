@@ -5,10 +5,10 @@
 public class ReportGen {
 
 
-    private char usertype;
 
-    public ReportGen(char usertype) {
-        this.usertype = usertype;
+
+    public ReportGen() {
+
     }
 
 
@@ -20,11 +20,11 @@ public class ReportGen {
 
 
             switch (choice) {
-                    case 1: System.out.println(getCourseListing(usertype));
-                    case 2: System.out.println(getDayListing(usertype));
-                    case 3: System.out.println(getTimeListing(usertype));
+                    case 1: System.out.println(getCourseListing());
+                    case 2: System.out.println(getDayListing());
+                    case 3: System.out.println(getTimeListing());
                     case 4: System.out.println(getStudentListing());
-                    case 5: System.out.println(getFacultyListing(usertype));
+                    case 5: System.out.println(getFacultyListing());
                     default: System.out.println("getReport() provided with" +
                             " an invalid or out-of-bounds menu option.");
                             return "";
@@ -39,7 +39,7 @@ public class ReportGen {
        course; faculty days and times.
      */
 
-    private String getCourseListing(char usertype) {
+    private String getCourseListing() {
 
         CourseSection courseListing = new CourseSection();
         courseListing.getDBData();
@@ -55,7 +55,7 @@ public class ReportGen {
 
         Privileged: times related to faculty information
      */
-    private String getDayListing(char usertype) {
+    private String getDayListing() {
 
         // do nothing for now.
         return "";
@@ -67,7 +67,7 @@ public class ReportGen {
 
         Privileged: days with related faculty information.
      */
-    private String getTimeListing(char usertype) {
+    private String getTimeListing() {
 
         // do nothing for now.
         return "";
@@ -92,12 +92,10 @@ public class ReportGen {
 
         Is this only intended for faculty members?
      */
-    private String getFacultyListing(char usertype) {
+    private String getFacultyListing() {
 
-        // are only faculty members or administrators allowed to retrieve certain information?
-        if (usertype != 'F' && usertype != 'A') {
-            return "You do not have sufficient credentials to retrieve this information.";
-        }
+
+
         // send back the results of a query in a stylized fashion.
         return "";
     }
