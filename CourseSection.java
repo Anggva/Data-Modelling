@@ -21,7 +21,7 @@ public class CourseSection extends Relationship {
 
     }
 
-    public CourseSection(int courseNumber, String days, String time, String students, String instructor) {
+    public CourseSection(String courseNumber, String days, String time, String students, String instructor) {
         setCourseNumber(courseNumber);
         setDays(days);
         setTime(time);
@@ -52,7 +52,7 @@ public class CourseSection extends Relationship {
             ResultSet resultSet = connection.createStatement().executeQuery(query);
 
             while (resultSet.next()) {
-                setCourseNumber(resultSet.getInt(1));
+                setCourseNumber(resultSet.getString(1));
                 setDays(resultSet.getString(2));
                 setTime(resultSet.getString(3));
                 setStudents(resultSet.getString(4));

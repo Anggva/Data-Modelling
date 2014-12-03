@@ -1,14 +1,29 @@
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.util.Scanner;
 
 /**
  * Created by Frank on 11/28/2014.
  */
 public class TimeListing extends Relationship {
 
+    int SectionNumber;
+
+
+    public String getFormData() {
+
+        return "Time Listing\n" +
+                "===================================================================\n" +
+                "Section Number\t" + "Course Number\t" + "Days\t" + "Time\t" + "Student\t" + "Instructor\n" +
+                SectionNumber + "\t" + getCourseNumber() + "\t" + getDays() + "\t" + getTime() + "\t" + getStudents() + "\t" + getInstructor();
+
+    }
+
     public void getDBData() {
 
         Connection connection;
+        Scanner scanner = new Scanner(System.in);
+        String selectedTime = scanner.nextLine().trim();
 
 
         try {
@@ -16,15 +31,15 @@ public class TimeListing extends Relationship {
 
             // query for getting the student and course information as it relates to days the student is
             // taking classes.
-            String query = "SELECT * FROM Section";
+            String query = "SELECT * FROM Sections WHERE Time = " + selectedTime;
 
             ResultSet resultSet = connection.createStatement().executeQuery(query);
 
             while (resultSet.next()) {
-                setCourseNumber(resultSet.getInt(1));
-                setDays(resultSet.getString(2));
-                setTime(resultSet.getString(3));
-                setStudents(resultSet.getString(4));
+                SectionNumber = resultSet.getInt(1);
+                setCourseNumber(resultSet.getString(2));
+                setDays(resultSet.getString(3));
+                setTime(resultSet.getString(4));
                 setInstructor(resultSet.getString(5));
             }
 

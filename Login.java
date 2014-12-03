@@ -37,7 +37,7 @@ public class Login {
         Connection connection = DBConnection.connect();
         char chadmin = '0';
 
-        String query = "SELECT isAdministrator FROM FacultyMembers WHERE FacultyNumber='" + FacultyNumber+"'";
+        String query = "SELECT isAdministrator FROM FacultyMembers HERE FacultyNumber='" + FacultyNumber+"'";
 
         ResultSet resultSet = connection.createStatement().executeQuery(query);
 
@@ -73,7 +73,7 @@ public class Login {
     }
 
 
-    private boolean checkUser(String number) throws SQLException {
+    public boolean checkUser(String number) throws SQLException {
 
         new DBConnection();
         Connection connection = DBConnection.connect();
@@ -85,7 +85,7 @@ public class Login {
 
         if (usertype == 'F') {
 
-            String query = "SELECT Password FROM Faculty WHERE FacultyNumber = " + number;
+            String query = "SELECT Password FROM FacultyMembers WHERE FacultyNumber = " + number;
 
             ResultSet resultSet = connection.createStatement().executeQuery(query);
 
@@ -104,7 +104,7 @@ public class Login {
 
         } else if (usertype == 'S') {
 
-            String query = "SELECT Password FROM Student WHERE StudentNumber = " + number;
+            String query = "SELECT Password FROM Students WHERE StudentNumber = " + number;
 
             ResultSet resultSet = connection.createStatement().executeQuery(query);
 
@@ -133,15 +133,11 @@ public class Login {
 
         System.out.println("Username: ");
         Scanner scanCredentials = new Scanner(System.in);
-
-        this.username = scanCredentials.nextLine();
+        username = scanCredentials.nextLine().trim();
 
         System.out.println("Password: ");
-        this.password = scanCredentials.nextLine();
+        password = scanCredentials.nextLine().trim();
 
-        System.out.println("CurrUser: "+this.username+" password: "+this.password);
-
-        isAuthenticated(this.username, this.password);
 
     }
 

@@ -1,3 +1,5 @@
+
+
 /**
  * Created by Frank on 11/25/2014.
  *
@@ -21,15 +23,22 @@ public class ReportGen {
 
             switch (choice) {
                     case 1: System.out.println(getCourseListing());
+                        break;
                     case 2: System.out.println(getDayListing());
+                        break;
                     case 3: System.out.println(getTimeListing());
+                        break;
                     case 4: System.out.println(getStudentListing());
+                        break;
                     case 5: System.out.println(getFacultyListing());
+                        break;
                     default: System.out.println("getReport() provided with" +
                             " an invalid or out-of-bounds menu option.");
-                            return "";
+
 
             }
+
+        return "";
 
     }
     /* retrieve course listing from some DB.
@@ -57,8 +66,12 @@ public class ReportGen {
      */
     private String getDayListing() {
 
-        // do nothing for now.
-        return "";
+        DayListing dayListing = new DayListing();
+        dayListing.getDBData();
+
+
+        // pass the report form data to the screen (out).
+        return dayListing.getFormData();
     }
 
     /*
@@ -69,8 +82,12 @@ public class ReportGen {
      */
     private String getTimeListing() {
 
-        // do nothing for now.
-        return "";
+        TimeListing timeListing = new TimeListing();
+        timeListing.getDBData();
+
+
+        // pass the report form data to the screen (out).
+        return timeListing.getFormData();
     }
 
     /*
@@ -81,8 +98,12 @@ public class ReportGen {
      */
     private String getStudentListing() {
 
-        // do nothing for now.
-        return "";
+        StudentListing studentListing = new StudentListing();
+        studentListing.getDBData();
+
+
+        // pass the report form data to the screen (out).
+        return studentListing.getFormData();
     }
 
     /*
@@ -95,8 +116,12 @@ public class ReportGen {
     private String getFacultyListing() {
 
 
-
         // send back the results of a query in a stylized fashion.
-        return "";
+        FacultyListing facultyListing = new FacultyListing();
+        facultyListing.getDBData();
+
+
+        // pass the report form data to the screen (out).
+        return facultyListing.getFormData();
     }
 }
