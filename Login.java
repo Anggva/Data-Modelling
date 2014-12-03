@@ -72,7 +72,7 @@ public class Login {
     }
 
 
-    private boolean checkUser(String number) throws SQLException {
+    public boolean checkUser(String number) throws SQLException {
 
         new DBConnection();
         Connection connection = DBConnection.connect();

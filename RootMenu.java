@@ -25,10 +25,9 @@ import java.util.Scanner;
 
 public class RootMenu {
 
-    private char usertype;
 
-    public RootMenu(char usertype) {
-        this.usertype = usertype;
+    public RootMenu() {
+
     }
 
     public void showMainMenu() {
@@ -182,7 +181,7 @@ public class RootMenu {
             // instantiate the ReportGen class and prepare its methods for
             // usage.
 
-            ReportGen reportGen = new ReportGen(usertype);
+            ReportGen reportGen = new ReportGen();
 
 
 

@@ -1,3 +1,5 @@
+import java.sql.SQLException;
+
 /**
  * Created by Frank on 11/24/2014.
  *
@@ -7,14 +9,13 @@
  */
 public class Driver {
 
-    public static void main (String[] args) {
-
-        char usertype = 'S';
+    public static void main (String[] args) throws SQLException {
 
         Login login = new Login();
         login.showLogin();
+        login.checkUser(login.getUsername());
 
-        RootMenu menu = new RootMenu(usertype);
+        RootMenu menu = new RootMenu();
         menu.showMainMenu();
     }
 }

@@ -46,8 +46,9 @@ public class AdminMenu {
                 break;
             case 4:
                 char usertype = 'F';
-                //return to root menu with usertype 'F' for Faculty
-                RootMenu root = new RootMenu(usertype);
+                // not anymore -- frank.
+                // return to root menu with usertype 'F' for Faculty
+                RootMenu root = new RootMenu();
                 root.showMainMenu();
                 return;
             default:
