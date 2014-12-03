@@ -17,7 +17,8 @@ public class FacultyListing extends Relationship {
                 "===================================================================\n" +
                 "Faculty Number\t" + "First Name\t" + "Last Name\t" + "Position\t" + "Area of Expertise\t" +
                 "Preferred Days\t" + "Preferred Times\t" + "Gender\t" + "Phone\t" +
-                getCourseNumber() + "\t" + getDays() + "\t" + getTime() + "\t" + getStudents() + "\t" + getInstructor();
+                facultyNumber + "\t" + firstName + "\t" + lastName + "\t" + PreferredCourseDays + "\t" +
+                PreferredCourseTimes + "\t" + gender + "\t" + phone;
     }
 
     public void getDBData() {
