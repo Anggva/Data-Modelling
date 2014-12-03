@@ -6,12 +6,16 @@ import java.sql.ResultSet;
  */
 public class StudentListing extends Relationship {
 
+    String studentnumber, firstName, lastName, semester, PreferredCourseDays, PreferredCourseTimes, gender, phone;
+
     public String getFormData() {
 
         return "Student Listing\n" +
                 "===================================================================\n" +
-                "Course Number\t" + "Days\t" + "Time\t" + "Student\t" + "Instructor\n" +
-                getCourseNumber() + "\t" + getDays() + "\t" + getTime() + "\t" + getStudents() + "\t" + getInstructor();
+                "Student Number\t" + "First Name\t" + "Last Name\t" + "Semester\t" + "Preferred Days\t" +
+                "Preferred Times\t" + "Gender\t" + "Phone\t" +
+                studentnumber + "\t" + firstName + "\t" + lastName + "\t" + semester + "\t" + PreferredCourseDays
+                + "\t" + PreferredCourseTimes + "\t" + gender + "\t" + phone;
 
     }
 
@@ -25,16 +29,19 @@ public class StudentListing extends Relationship {
 
             // query for getting the list of students and their relation to the courses they are
             // taking, their times, etc.
-            String query = "SELECT * FROM Section";
+            String query = "SELECT * FROM Students";
 
             ResultSet resultSet = connection.createStatement().executeQuery(query);
 
             while (resultSet.next()) {
-                setCourseNumber(resultSet.getString(1));
-                setDays(resultSet.getString(2));
-                setTime(resultSet.getString(3));
-                setStudents(resultSet.getString(4));
-                setInstructor(resultSet.getString(5));
+                studentnumber = (resultSet.getString(1));
+                firstName = (resultSet.getString(2));
+                lastName = (resultSet.getString(3));
+                semester = (resultSet.getString(4));
+                PreferredCourseDays = (resultSet.getString(5));
+                PreferredCourseTimes = resultSet.getString(6);
+                gender = resultSet.getString(7);
+                phone = resultSet.getString(8);
             }
 
         } catch (Exception e) {

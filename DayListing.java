@@ -10,12 +10,14 @@ import java.util.Scanner;
 
 public class DayListing extends Relationship {
 
+    int SectionNumber;
+
     public String getFormData() {
 
-        return "Day Listing\n" +
+        return "Time Listing\n" +
                 "===================================================================\n" +
-                "Course Number\t" + "Days\t" + "Time\t" + "Student\t" + "Instructor\n" +
-                getCourseNumber() + "\t" + getDays() + "\t" + getTime() + "\t" + getStudents() + "\t" + getInstructor();
+                "Section Number\t" + "Course Number\t" + "Days\t" + "Time\t" + "Student\t" + "Instructor\n" +
+                SectionNumber + "\t" + getCourseNumber() + "\t" + getDays() + "\t" + getTime() + "\t" + getStudents() + "\t" + getInstructor();
 
     }
 
@@ -40,10 +42,10 @@ public class DayListing extends Relationship {
             ResultSet resultSet = connection.createStatement().executeQuery(query);
 
             while (resultSet.next()) {
-                setSectionNumber(resultSet.getInt(1));
-                setDays(resultSet.getString(2));
-                setTime(resultSet.getString(3));
-                setStudents(resultSet.getString(4));
+                SectionNumber = resultSet.getInt(1);
+                setCourseNumber(resultSet.getString(2));
+                setDays(resultSet.getString(3));
+                setTime(resultSet.getString(4));
                 setInstructor(resultSet.getString(5));
             }
 

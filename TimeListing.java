@@ -9,12 +9,13 @@ public class TimeListing extends Relationship {
 
     int SectionNumber;
 
+
     public String getFormData() {
 
         return "Time Listing\n" +
                 "===================================================================\n" +
-                "Course Number\t" + "Days\t" + "Time\t" + "Student\t" + "Instructor\n" +
-                getCourseNumber() + "\t" + getDays() + "\t" + getTime() + "\t" + getStudents() + "\t" + getInstructor();
+                "Section Number\t" + "Course Number\t" + "Days\t" + "Time\t" + "Student\t" + "Instructor\n" +
+                SectionNumber + "\t" + getCourseNumber() + "\t" + getDays() + "\t" + getTime() + "\t" + getStudents() + "\t" + getInstructor();
 
     }
 
@@ -36,9 +37,9 @@ public class TimeListing extends Relationship {
 
             while (resultSet.next()) {
                 SectionNumber = resultSet.getInt(1);
-                setDays(resultSet.getString(2));
-                setTime(resultSet.getString(3));
-                setStudents(resultSet.getString(4));
+                setCourseNumber(resultSet.getString(2));
+                setDays(resultSet.getString(3));
+                setTime(resultSet.getString(4));
                 setInstructor(resultSet.getString(5));
             }
 

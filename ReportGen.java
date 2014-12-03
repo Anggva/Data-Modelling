@@ -1,3 +1,5 @@
+import java.sql.Time;
+
 /**
  * Created by Frank on 11/25/2014.
  *
@@ -69,8 +71,12 @@ public class ReportGen {
      */
     private String getTimeListing() {
 
-        // do nothing for now.
-        return "";
+        TimeListing timeListing = new TimeListing();
+        timeListing.getDBData();
+
+
+        // pass the report form data to the screen (out).
+        return timeListing.getFormData();
     }
 
     /*
@@ -81,8 +87,12 @@ public class ReportGen {
      */
     private String getStudentListing() {
 
-        // do nothing for now.
-        return "";
+        StudentListing studentListing = new StudentListing();
+        studentListing.getDBData();
+
+
+        // pass the report form data to the screen (out).
+        return studentListing.getFormData();
     }
 
     /*
@@ -95,8 +105,12 @@ public class ReportGen {
     private String getFacultyListing() {
 
 
-
         // send back the results of a query in a stylized fashion.
-        return "";
+        FacultyListing facultyListing = new FacultyListing();
+        facultyListing.getDBData();
+
+
+        // pass the report form data to the screen (out).
+        return facultyListing.getFormData();
     }
 }
