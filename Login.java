@@ -133,10 +133,10 @@ public class Login {
         System.out.println("Username: ");
         Scanner scanCredentials = new Scanner(System.in);
 
-        username = scanCredentials.nextLine();
+        username = scanCredentials.nextLine().trim();
 
         System.out.println("Password: ");
-        password = scanCredentials.nextLine();
+        password = scanCredentials.nextLine().trim();
 
     }
 
