@@ -2,10 +2,6 @@
  * Created by: Brittany Dinneen
  * Group Name: LostInERwin
  * Due 12/03/2014
- *
- * TODO:
- * 1. ChangePriv()
- * 2. Ensure only admin get into this menu
  */
 
 import java.sql.*;

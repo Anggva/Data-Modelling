@@ -15,6 +15,7 @@ public class Driver {
         login.showLogin();
 
         while (true) {
+
             if (login.checkUser(login.getUsername())) {
 
                 RootMenu menu = new RootMenu();
