@@ -13,11 +13,17 @@ public class DBConnection {
     public static Connection connect() throws SQLException {
 
         Connection connection;
+        try {
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+        } catch (ClassNotFoundException e) {
+            System.out.println("Oracle JDBC .jar not found!");
+            return null;
+        }
         // gets connection to olympia
         try {
             connection = DriverManager.getConnection("jdbc:oracle:thin:@olympia.unfcsd.unf.edu:1521:dworcl", "teamlostinerwin", "team3bdpsvv");
         } catch (SQLException e) {
-            System.out.println("Connection to Olympia Failed!" + e.getMessage());
+            System.out.println("Connection to Olympia Failed!");
             return null;
         }
         if (connection == null) {
