@@ -1,4 +1,4 @@
-import java.sql.Time;
+
 
 /**
  * Created by Frank on 11/25/2014.
@@ -59,8 +59,12 @@ public class ReportGen {
      */
     private String getDayListing() {
 
-        // do nothing for now.
-        return "";
+        DayListing dayListing = new DayListing();
+        dayListing.getDBData();
+
+
+        // pass the report form data to the screen (out).
+        return dayListing.getFormData();
     }
 
     /*
