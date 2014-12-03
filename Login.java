@@ -1,6 +1,7 @@
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.*;
 
 
@@ -138,12 +139,46 @@ public class Login {
         System.out.println("Password: ");
         this.password = scanCredentials.nextLine();
 
+        System.out.println("CurrUser: "+this.username+" password: "+this.password);
+
+        isAuthenticated(this.username, this.password);
+
     }
 
 
-    public boolean isAuthenticated() {
+    public boolean isAuthenticated(String currUser, String currPassword) {
 
-        return authenticated;
+        if(currUser.charAt(0) == 'F'){
 
+            //check if username exists
+            //check if password goes with that username
+            //return true OR false
+
+            String check = "SELECT Password FROM FacultyMembers WHERE FacultyNumber='"+currUser+"'";
+           // System.out.println("password on file: "+check);
+
+            try {
+                Connection connection;
+                connection = DBConnection.connect();
+                Statement stmt = connection.createStatement();
+                stmt.execute(check);//Call to DELETE QUERY
+                stmt.toString();
+            } catch(SQLException e){e.printStackTrace();}
+
+        }
+
+        if(currPassword.charAt(0) == 'S'){
+
+            //check if username aexists
+            //check if password goes with that username
+            //return true OR false
+
+        }
+
+        else{
+            return authenticated;
+        }
+
+    return authenticated;
     }
 }

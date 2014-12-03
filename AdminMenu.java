@@ -289,7 +289,6 @@ public class AdminMenu {
 
                 try {
                     Connection connection;
-                    System.out.println("got into try");
                     connection = DBConnection.connect();
                     Statement stmt = connection.createStatement();
                     stmt.execute(deleteQuery);//Call to DELETE QUERY
@@ -370,7 +369,7 @@ public class AdminMenu {
         option = newScan.nextLine();
 
         if(option.equals("Y")) {
-            if (isAdmin == '1') {
+            if (isAdmin == '1') {//this will remove a current faculty members admin rights
                 String no = "0";
                 String updateQuery = "UPDATE FacultyMembers SET isAdministrator='"+no+"' WHERE FacultyNumber='"+facultyInQuestion+"'";
                 try {
@@ -382,7 +381,7 @@ public class AdminMenu {
                     System.err.println(e.getMessage());
                 }
             }
-            if (isAdmin == '0') {
+            if (isAdmin == '0') {//this will give a faculty member admin rights
                 String yes = "1";
                 String updateQuery = "UPDATE FacultyMembers SET isAdministrator='" + yes + "' WHERE FacultyNumber='"+facultyInQuestion+"'";
                 try {
